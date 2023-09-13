@@ -1,0 +1,131 @@
+- hosts: all
+  debugger: on_skipped
+  gather_facts: no
+  tasks:
+    - name: Install docker packages
+      become: yes
+      remote_user: grevtsevalex
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      with_items:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - software-properties-common
+      tags:
+        - docker
+
+    - name: Add Docker s official GPG key
+      become: yes
+      remote_user: grevtsevalex
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+      tags:
+        - docker
+
+    - name: Verify that we have the key with the fingerprint
+      become: yes
+      remote_user: grevtsevalex
+      apt_key:
+        id: 0EBFCD88
+        state: present
+      tags:
+        - docker
+
+    - name: Set up the stable repository
+      become: yes
+      remote_user: grevtsevalex
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+        state: present
+        update_cache: yes
+      tags:
+        - docker
+
+    - name: Update apt packages
+      become: yes
+      remote_user: grevtsevalex
+      apt:
+        update_cache: yes
+      tags:
+        - docker
+
+    - name: Install docker
+      become: yes
+      remote_user: grevtsevalex
+      apt:
+        name: docker-ce
+        state: present
+        update_cache: yes
+      #notify: Start docker on boot
+      tags:
+        - docker
+
+    - name: Add remote "grevtsevalex" user to "docker" group
+      become: yes
+      remote_user: grevtsevalex
+      user:
+        name: "grevtsevalex"
+        group: "docker"
+        append: yes
+      tags:
+        - docker
+
+    - name: Install docker-compose
+      become: yes
+      remote_user: grevtsevalex
+      get_url:
+        url : https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64
+        dest: /usr/local/bin/docker-compose
+        mode: 'u+x,g+x'
+
+    - name: install python
+      become: yes
+      apt:
+        name: python3-pip
+        update_cache: yes
+        cache_valid_time: 604800 # 1 week
+
+    - pip:
+        name: docker
+
+    - pip:
+        name: docker-compose
+
+    - name: install git
+      ansible.builtin.apt:
+        name: git
+        state: present
+      become: yes
+
+    - name: show files
+      shell: ls -la ~
+      tags:
+        git
+
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: /var/www
+        state: directory
+        mode: '0777'
+      become: yes
+      tags:
+        git-clone
+
+    - name: make directory safe for git
+      shell: git config --global --add safe.directory /var/www
+      tags:
+        git-clone
+
+    - name: Clone project
+      ansible.builtin.git:
+        repo: git@github.com:grevtsevalex/beauty-app.git
+        dest: /var/www
+        version: main
+        accept_hostkey: yes
+      tags:
+        git-clone
+      

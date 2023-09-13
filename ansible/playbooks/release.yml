@@ -1,0 +1,25 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: git pull from repo
+      shell: cd /var/www && git pull
+
+    - name: Log into DockerHub
+      docker_login:
+        username: grevtsevalex
+        password: dckr_pat_9yOHnrjplKipqwh9Y3jtRz7V3OY
+
+    - name: copy env file
+      ansible.builtin.copy:
+        dest: /var/www/.env
+        src: ../../.env
+
+    - name: tear down app
+      community.docker.docker_compose:
+        project_src: /var/www
+        state: absent
+
+    - name: Create and start services
+      community.docker.docker_compose:
+        project_src: /var/www
+      register: output
