@@ -27,7 +27,10 @@ removeImagesAndContainers:
 	docker rmi $(docker images -aq) || docker rm $(docker ps -aq)
 
 servers-setup:
-	ansible-playbook ansible/playbooks/setup.yml -i ansible/inventory.ini
+	ansible-playbook ansible/playbooks/setup.yml -i ansible/inventory.ini --vault-password-file vault.pass
 
 deploy:
-	ansible-playbook ansible/playbooks/release.yml -i ansible/inventory.ini
+	ansible-playbook ansible/playbooks/release.yml -i ansible/inventory.ini --vault-password-file vault.pass
+
+edit-vault:
+	ansible-vault edit ansible/group_vars/all/vault.yml --vault-password-file ansible/vault.pass

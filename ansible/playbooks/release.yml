@@ -6,8 +6,8 @@
 
     - name: Log into DockerHub
       docker_login:
-        username: grevtsevalex
-        password: dckr_pat_9yOHnrjplKipqwh9Y3jtRz7V3OY
+        username: "{{ username }}"
+        password: "{{ dockerhub_pass }}"
 
     - name: copy env file
       ansible.builtin.copy:

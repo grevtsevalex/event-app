@@ -4,7 +4,7 @@
   tasks:
     - name: Install docker packages
       become: yes
-      remote_user: grevtsevalex
+      remote_user: "{{ username }}"
       apt:
         name: "{{ item }}"
         state: present
@@ -19,7 +19,7 @@
 
     - name: Add Docker s official GPG key
       become: yes
-      remote_user: grevtsevalex
+      remote_user: "{{ username }}"
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
@@ -28,7 +28,7 @@
 
     - name: Verify that we have the key with the fingerprint
       become: yes
-      remote_user: grevtsevalex
+      remote_user: "{{ username }}"
       apt_key:
         id: 0EBFCD88
         state: present
@@ -37,7 +37,7 @@
 
     - name: Set up the stable repository
       become: yes
-      remote_user: grevtsevalex
+      remote_user: "{{ username }}"
       apt_repository:
         repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
         state: present
@@ -47,7 +47,7 @@
 
     - name: Update apt packages
       become: yes
-      remote_user: grevtsevalex
+      remote_user: "{{ username }}"
       apt:
         update_cache: yes
       tags:
@@ -55,7 +55,7 @@
 
     - name: Install docker
       become: yes
-      remote_user: grevtsevalex
+      remote_user: "{{ username }}"
       apt:
         name: docker-ce
         state: present
@@ -64,11 +64,11 @@
       tags:
         - docker
 
-    - name: Add remote "grevtsevalex" user to "docker" group
+    - name: Add remote user to "docker" group
       become: yes
-      remote_user: grevtsevalex
+      remote_user: "{{ username }}"
       user:
-        name: "grevtsevalex"
+        name: "{{ username }}"
         group: "docker"
         append: yes
       tags:
@@ -76,7 +76,7 @@
 
     - name: Install docker-compose
       become: yes
-      remote_user: grevtsevalex
+      remote_user: "{{ username }}"
       get_url:
         url : https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64
         dest: /usr/local/bin/docker-compose
@@ -122,7 +122,7 @@
 
     - name: Clone project
       ansible.builtin.git:
-        repo: git@github.com:grevtsevalex/beauty-app.git
+        repo: git@github.com:grevtsevalex/event-app.git
         dest: /var/www
         version: main
         accept_hostkey: yes
