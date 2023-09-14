@@ -4,6 +4,10 @@
     - name: git pull from repo
       shell: cd /var/www && git pull
 
+      #Вот тут было бы хорошо сделать композер апдейт
+      #это можно делать через докер-контейнер с композером
+      #стартовать этот контейнер, он поднимется, соберет проект и умрет
+
     - name: Log into DockerHub
       docker_login:
         username: "{{ username }}"
