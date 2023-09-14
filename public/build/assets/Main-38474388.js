@@ -1,0 +1,1 @@
+import{_ as o,r as t,o as n,c as _,w as r,a as c}from"./app-b5fedbdd.js";const s={},a=c("Profile");function i(l,f){const e=t("router-link");return n(),_(e,{to:"/profile"},{default:r(()=>[a]),_:1})}const u=o(s,[["render",i]]);export{u as default};
