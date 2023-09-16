@@ -47,7 +47,7 @@ class AuthController extends Controller
             ], 400);
         }
 
-        $data['token'] = $user->createToken('bel')->plainTextToken;
+        $data['token'] = $user->createToken('us-tok-el')->plainTextToken;
         $data['name']  = $user->name;
 
         $response = [

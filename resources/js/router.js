@@ -12,6 +12,10 @@ export default createRouter({
             component: () => import('./pages/Profile.vue')
         },
         {
+            path: '/auth',
+            component: () => import('./pages/Auth.vue')
+        },
+        {
             path: '/:pathMatch(.*)*',
             component: () => import('./pages/404.vue')
         }

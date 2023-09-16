@@ -1,17 +1,21 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-4ed993c7.js",
+    "file": "assets/app-0e2cf9fd.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
+    "css": [
+      "assets/app-0e2cf9fd.css"
+    ],
     "dynamicImports": [
       "resources/js/pages/Main.vue",
       "resources/js/pages/Profile.vue",
+      "resources/js/pages/Auth.vue",
       "resources/js/pages/404.vue",
       "resources/js/bootstrap.js"
     ],
-    "file": "assets/app-b5fedbdd.js",
+    "file": "assets/app-f9a6a4e6.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -21,22 +25,32 @@
     "src": "resources/js/bootstrap.js"
   },
   "resources/js/pages/404.vue": {
-    "file": "assets/404-f619789d.js",
+    "css": [
+      "assets/app-0e2cf9fd.css"
+    ],
+    "file": "assets/404-aa19f531.js",
     "imports": [
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/404.vue"
   },
-  "resources/js/pages/Main.css": {
-    "file": "assets/Main-adfadfef.css",
-    "src": "resources/js/pages/Main.css"
+  "resources/js/pages/Auth.vue": {
+    "css": [
+      "assets/app-0e2cf9fd.css"
+    ],
+    "file": "assets/Auth-2d016b26.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Auth.vue"
   },
   "resources/js/pages/Main.vue": {
     "css": [
-      "assets/Main-adfadfef.css"
+      "assets/app-0e2cf9fd.css"
     ],
-    "file": "assets/Main-38474388.js",
+    "file": "assets/Main-69eeb522.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -44,7 +58,10 @@
     "src": "resources/js/pages/Main.vue"
   },
   "resources/js/pages/Profile.vue": {
-    "file": "assets/Profile-2e536479.js",
+    "css": [
+      "assets/app-0e2cf9fd.css"
+    ],
+    "file": "assets/Profile-1da0b2b7.js",
     "imports": [
       "resources/js/app.js"
     ],
