@@ -1,1 +1,0 @@
-import{_ as o,r as t,o as r,c as n,w as c,a as s}from"./app-f9a6a4e6.js";/* empty css            */const a={},_=s("Profile");function i(f,l){const e=t("router-link");return r(),n(e,{to:"/profile"},{default:c(()=>[_]),_:1})}const m=o(a,[["render",i]]);export{m as default};

@@ -1,21 +1,25 @@
 {
+  "_Validators-8c5bdfcc.js": {
+    "file": "assets/Validators-8c5bdfcc.js"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-0e2cf9fd.css",
+    "file": "assets/app-65670ea7.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-0e2cf9fd.css"
+      "assets/app-65670ea7.css"
     ],
     "dynamicImports": [
       "resources/js/pages/Main.vue",
       "resources/js/pages/Profile.vue",
       "resources/js/pages/Auth.vue",
+      "resources/js/pages/Register.vue",
       "resources/js/pages/404.vue",
       "resources/js/bootstrap.js"
     ],
-    "file": "assets/app-f9a6a4e6.js",
+    "file": "assets/app-bdba8a83.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -26,9 +30,9 @@
   },
   "resources/js/pages/404.vue": {
     "css": [
-      "assets/app-0e2cf9fd.css"
+      "assets/app-65670ea7.css"
     ],
-    "file": "assets/404-aa19f531.js",
+    "file": "assets/404-e6218d20.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -37,20 +41,21 @@
   },
   "resources/js/pages/Auth.vue": {
     "css": [
-      "assets/app-0e2cf9fd.css"
+      "assets/app-65670ea7.css"
     ],
-    "file": "assets/Auth-2d016b26.js",
+    "file": "assets/Auth-a0320e2d.js",
     "imports": [
-      "resources/js/app.js"
+      "resources/js/app.js",
+      "_Validators-8c5bdfcc.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Auth.vue"
   },
   "resources/js/pages/Main.vue": {
     "css": [
-      "assets/app-0e2cf9fd.css"
+      "assets/app-65670ea7.css"
     ],
-    "file": "assets/Main-69eeb522.js",
+    "file": "assets/Main-884b3fd8.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -59,13 +64,25 @@
   },
   "resources/js/pages/Profile.vue": {
     "css": [
-      "assets/app-0e2cf9fd.css"
+      "assets/app-65670ea7.css"
     ],
-    "file": "assets/Profile-1da0b2b7.js",
+    "file": "assets/Profile-8542b118.js",
     "imports": [
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/Profile.vue"
+  },
+  "resources/js/pages/Register.vue": {
+    "css": [
+      "assets/app-65670ea7.css"
+    ],
+    "file": "assets/Register-4e3d90b8.js",
+    "imports": [
+      "resources/js/app.js",
+      "_Validators-8c5bdfcc.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/Register.vue"
   }
 }

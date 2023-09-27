@@ -16,6 +16,10 @@ export default createRouter({
             component: () => import('./pages/Auth.vue')
         },
         {
+            path: '/register',
+            component: () => import('./pages/Register.vue')
+        },
+        {
             path: '/:pathMatch(.*)*',
             component: () => import('./pages/404.vue')
         }
