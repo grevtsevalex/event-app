@@ -8,7 +8,7 @@ export class FetchHelper {
         return csrfElement.getAttribute('content');
     }
 
-    public static sendFetch(url: string, data: string): any {
+    public static sendPost(url: string, data: string): any {
         return fetch(url, {
             method: 'POST',
             headers: {
@@ -17,6 +17,17 @@ export class FetchHelper {
             },
             credentials: "include",
             body: data
+        }).then(res => res.json())
+    }
+
+    public static sendGet(url: string): any {
+        return fetch(url, {
+            method: 'GET',
+            headers: {
+                'X-CSRF-TOKEN': FetchHelper.getCSRF(),
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            credentials: "include",
         }).then(res => res.json())
     }
 

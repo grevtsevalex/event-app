@@ -20,6 +20,10 @@ export default createRouter({
             component: () => import('./pages/Register.vue')
         },
         {
+            path: '/create-event',
+            component: () => import('./pages/CreateEvent.vue')
+        },
+        {
             path: '/:pathMatch(.*)*',
             component: () => import('./pages/404.vue')
         }

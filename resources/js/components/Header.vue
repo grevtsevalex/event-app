@@ -4,7 +4,7 @@
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+          <img class="h-12 w-auto" src="../../images/logo.jpg" alt="" />
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -16,7 +16,7 @@
       <PopoverGroup class="hidden lg:flex lg:gap-x-12">
         <Popover class="relative">
           <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-            Product
+            События
             <ChevronDownIcon class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
           </PopoverButton>
 
@@ -28,30 +28,23 @@
                     <component :is="item.icon" class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                   </div>
                   <div class="flex-auto">
-                    <a :href="item.href" class="block font-semibold text-gray-900">
-                      {{ item.name }}
-                      <span class="absolute inset-0" />
-                    </a>
+                    <router-link :to="item.href">
+                      <a class="block font-semibold text-gray-900">
+                        {{ item.name }}
+                        <span class="absolute inset-0" />
+                      </a>
+                    </router-link>
                     <p class="mt-1 text-gray-600">{{ item.description }}</p>
                   </div>
                 </div>
               </div>
-              <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                <a v-for="item in callsToAction" :key="item.name" :href="item.href" class="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
-                  <component :is="item.icon" class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                  {{ item.name }}
-                </a>
-              </div>
             </PopoverPanel>
           </transition>
         </Popover>
-
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">О нас</a>
       </PopoverGroup>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <router-link to="/auth"><a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a></router-link>
+        <router-link :to="buttonUrl"><a href="{{buttonUrl}}" class="text-sm font-semibold leading-6 text-gray-900">{{buttonTitle}} <span aria-hidden="true">&rarr;</span></a></router-link>
       </div>
     </nav>
     <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -76,15 +69,13 @@
                   <ChevronDownIcon :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']" aria-hidden="true" />
                 </DisclosureButton>
                 <DisclosurePanel class="mt-2 space-y-2">
-                  <DisclosureButton v-for="item in [...products, ...callsToAction]" :key="item.name" as="a" :href="item.href" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ item.name }}</DisclosureButton>
+                  <DisclosureButton v-for="item in [...products]" :key="item.name" as="a" :href="item.href" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ item.name }}</DisclosureButton>
                 </DisclosurePanel>
               </Disclosure>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">О нас</a>
             </div>
             <div class="py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Войти</a>
             </div>
           </div>
         </div>
@@ -94,7 +85,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import {onMounted, ref} from 'vue'
 import {
   Dialog,
   DialogPanel,
@@ -106,32 +97,16 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from '@headlessui/vue'
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
-} from '@heroicons/vue/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
+import {Bars3Icon, CursorArrowRaysIcon, XMarkIcon,} from '@heroicons/vue/24/outline'
+import {ChevronDownIcon} from '@heroicons/vue/20/solid'
 
+const isGuest = !Boolean(document.querySelector('[data-role="is-auth"]').value);
+const buttonTitle = isGuest ? 'Войти' : 'Профиль'
+const buttonUrl = isGuest ? '/auth' : '/profile'
 const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-]
-const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
+  { name: 'Создать событие', description: 'Планируйте и проводите мероприятия вместе с нами', href: '/create-event', icon: CursorArrowRaysIcon },
+  { name: 'Все события', description: 'Список ближайших мероприятий', href: '/', icon: CursorArrowRaysIcon }
 ]
 
 const mobileMenuOpen = ref(false)
 </script>
-
-<style scoped>
-
-</style>

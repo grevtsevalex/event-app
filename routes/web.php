@@ -17,10 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/auth', function () {
+Route::get('/auth', ['as' => 'login', function () {
 	return view('welcome');
-});
+}]);
 
 Route::get('/register', function () {
 	return view('welcome');
 });
+
+Route::get('/create-event', ['middleware' => 'auth', 'uses' => 'AuthController@login', function () {
+	return view('welcome');
+}]);

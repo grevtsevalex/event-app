@@ -88,7 +88,11 @@ export default defineComponent({
         return
       }
 
-      (new AuthApi()).emailAndPassAuthorization(this.email, this.pass);
+      (new AuthApi()).emailAndPassAuthorization(this.email, this.pass).then(data => {
+        if (data.data) {
+          window.location = '/'
+        }
+      });
     },
   },
 })

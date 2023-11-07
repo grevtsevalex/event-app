@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\ApiResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -15,9 +17,10 @@ class AuthController extends Controller
      *
      * @param Request $request
      *
-     * @return string
+     * @return ApiResponse
      */
-    public function register(Request $request): string {
+    public function register(Request $request): ApiResponse {
+		$response = new ApiResponse();
         $validator = Validator::make($request->all(), [
             'name'       => 'required',
             'email'      => 'required|email',
@@ -26,12 +29,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            $response = [
-                'success' => false,
-                'message' => $validator->errors(),
-            ];
-
-            return response()->json($response, 400);
+            return $response->setContent(false, false, $validator->errors())->setStatusCode(400);
         }
 
         $input             = $request->all();
@@ -41,22 +39,13 @@ class AuthController extends Controller
             $user = User::create($input);
         }
         catch(\Throwable) {
-            return response()->json([
-                'success' => false,
-                'message' => 'User is not been created'
-            ], 400);
+			return $response->setContent(false, false, 'User is not been created')->setStatusCode(400);
         }
 
         $data['token'] = $user->createToken('us-tok-el')->plainTextToken;
         $data['name']  = $user->name;
 
-        $response = [
-            'success' => true,
-            'data'    => $data,
-            'message' => 'User register successfully',
-        ];
-
-        return response()->json($response, 200);
+        return $response->setContent($data, true, 'User register successfully');
     }
 
     /**
@@ -64,27 +53,48 @@ class AuthController extends Controller
      *
      * @param Request $request
      *
-     * @return string
+     * @return ApiResponse
      */
-    public function login(Request $request): string {
+    public function login(Request $request): ApiResponse {
+		$response = new ApiResponse();
         if (false === Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 
-            return response()->json([
-                'success' => false,
-                'message' => 'Unauthorized'
-            ], 400);
+            return $response->setContent(false, false, 'Unauthorized')->setStatusCode(400);
         }
 
         $user = $request->user();
         $data['token'] = $user->createToken('bel')->plainTextToken;
         $data['name']  = $user->name;
 
-        $response = [
-            'success' => true,
-            'data'    => $data,
-            'message' => 'User login successfully',
-        ];
-
-        return response()->json($response, 200);
+        return $response->setContent($data, true, 'User login successfully');
     }
+	
+	/**
+	 * Check user is auth.
+	 *
+	 * @param Request $request
+	 *
+	 * @return ApiResponse
+	 */
+	public function check(Request $request): ApiResponse {
+		return (new ApiResponse())->setContent(Auth::check());
+	}
+	
+	/**
+	 * Log the user out of the application.
+	 *
+	 * @param Request $request
+	 *
+	 * @return ApiResponse
+	 */
+	public function logout(Request $request): ApiResponse
+	{
+		Auth::logout();
+		
+		$request->session()->invalidate();
+		
+		$request->session()->regenerateToken();
+		
+		return (new ApiResponse())->setContent(true);
+	}
 }

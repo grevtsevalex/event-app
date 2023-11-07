@@ -14,6 +14,7 @@
         @vite('resources/css/app.css')
     </head>
     <body>
+        <input type="hidden" data-role="is-auth" value="{{ auth()->check() }}">
         <div id="app"></div>
         @vite('resources/js/app.js')
     </body>
