@@ -99,8 +99,11 @@ import {
 } from '@headlessui/vue'
 import {Bars3Icon, CursorArrowRaysIcon, XMarkIcon,} from '@heroicons/vue/24/outline'
 import {ChevronDownIcon} from '@heroicons/vue/20/solid'
+import {useStore} from "vuex";
 
 const isGuest = !Boolean(document.querySelector('[data-role="is-auth"]').value);
+useStore().commit('setIsAuthenticated', !isGuest);
+
 const buttonTitle = isGuest ? 'Войти' : 'Профиль'
 const buttonUrl = isGuest ? '/auth' : '/profile'
 const products = [

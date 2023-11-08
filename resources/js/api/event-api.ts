@@ -2,7 +2,7 @@ import {FetchHelper} from "../scripts/FetchHelper";
 
 export class EventApi {
 
-    public createEvent(title: string, description: string, dateTime: string, address: string): Promise<any> {
+    public createEvent(title: string, description: string, dateTime: string, address: string, image: ): Promise<any> {
         return FetchHelper.sendPost('http://localhost/api/events', JSON.stringify({
             title, date_time: dateTime, address, description
         }))

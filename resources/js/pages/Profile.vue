@@ -4,6 +4,10 @@
 <script setup lang="ts">
 import {AuthApi} from "../api/auth-api";
 import auth from "./Auth.vue";
+import {useStore} from "vuex";
 
-const clickHandler = () => new AuthApi().logout().then(res => window.location = '/');
+const clickHandler = () => new AuthApi().logout().then(res => {
+  useStore().commit('setIsAuthenticated', false);
+  window.location = '/'
+});
 </script>

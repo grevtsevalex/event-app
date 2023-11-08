@@ -18,7 +18,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-cb19ba20.css",
+    "file": "assets/app-a8a44f6a.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -31,7 +31,7 @@
       "assets/logo-12a420d8.jpg"
     ],
     "css": [
-      "assets/app-cb19ba20.css"
+      "assets/app-a8a44f6a.css"
     ],
     "dynamicImports": [
       "resources/js/pages/Main.vue",
@@ -42,7 +42,7 @@
       "resources/js/pages/404.vue",
       "resources/js/bootstrap.js"
     ],
-    "file": "assets/app-9121305b.js",
+    "file": "assets/app-5e05a050.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -53,9 +53,9 @@
   },
   "resources/js/pages/404.vue": {
     "css": [
-      "assets/app-cb19ba20.css"
+      "assets/app-a8a44f6a.css"
     ],
-    "file": "assets/404-68479ecc.js",
+    "file": "assets/404-4a0b7ddb.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -64,9 +64,9 @@
   },
   "resources/js/pages/Auth.vue": {
     "css": [
-      "assets/app-cb19ba20.css"
+      "assets/app-a8a44f6a.css"
     ],
-    "file": "assets/Auth-82265ca7.js",
+    "file": "assets/Auth-a540de88.js",
     "imports": [
       "resources/js/app.js",
       "_auth-api-77f5194a.js",
@@ -78,9 +78,9 @@
   },
   "resources/js/pages/CreateEvent.vue": {
     "css": [
-      "assets/app-cb19ba20.css"
+      "assets/app-a8a44f6a.css"
     ],
-    "file": "assets/CreateEvent-b5c8a60e.js",
+    "file": "assets/CreateEvent-f5f61926.js",
     "imports": [
       "resources/js/app.js",
       "_event-api-8350d34a.js",
@@ -96,9 +96,9 @@
   "resources/js/pages/Main.vue": {
     "css": [
       "assets/Main-118fc070.css",
-      "assets/app-cb19ba20.css"
+      "assets/app-a8a44f6a.css"
     ],
-    "file": "assets/Main-224878ab.js",
+    "file": "assets/Main-936a46f5.js",
     "imports": [
       "_event-api-8350d34a.js",
       "resources/js/app.js",
@@ -109,9 +109,9 @@
   },
   "resources/js/pages/Profile.vue": {
     "css": [
-      "assets/app-cb19ba20.css"
+      "assets/app-a8a44f6a.css"
     ],
-    "file": "assets/Profile-29a9a058.js",
+    "file": "assets/Profile-1ce096dd.js",
     "imports": [
       "_auth-api-77f5194a.js",
       "resources/js/app.js",
@@ -122,9 +122,9 @@
   },
   "resources/js/pages/Register.vue": {
     "css": [
-      "assets/app-cb19ba20.css"
+      "assets/app-a8a44f6a.css"
     ],
-    "file": "assets/Register-b6fcd64d.js",
+    "file": "assets/Register-7a207195.js",
     "imports": [
       "resources/js/app.js",
       "_auth-api-77f5194a.js",

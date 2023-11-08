@@ -1,5 +1,4 @@
 import {createRouter, createWebHistory} from 'vue-router';
-
 export default createRouter({
     history: createWebHistory(),
     routes: [
@@ -9,7 +8,8 @@ export default createRouter({
         },
         {
             path: '/profile',
-            component: () => import('./pages/Profile.vue')
+            component: () => import('./pages/Profile.vue'),
+            meta: { requiresAuth: true }
         },
         {
             path: '/auth',
@@ -17,11 +17,12 @@ export default createRouter({
         },
         {
             path: '/register',
-            component: () => import('./pages/Register.vue')
+            component: () => import('./pages/Register.vue'),
         },
         {
             path: '/create-event',
-            component: () => import('./pages/CreateEvent.vue')
+            component: () => import('./pages/CreateEvent.vue'),
+            meta: { requiresAuth: true }
         },
         {
             path: '/:pathMatch(.*)*',
