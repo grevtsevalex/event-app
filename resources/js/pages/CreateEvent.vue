@@ -45,6 +45,12 @@
               <input type="text" v-model="address" name="address" id="address" autocomplete="address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
             </div>
           </div>
+          <div class="sm:col-span-3">
+            <label for="image" class="block text-sm font-medium leading-6 text-gray-900">Картинка</label>
+            <div class="mt-2">
+              <input type="file" @change="uploadImageHandler" name="image" id="image" autocomplete="address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -59,6 +65,8 @@
 <script>
 import {defineComponent} from "vue";
 import {EventApi} from "../api/event-api";
+import {ImageApi} from "../api/image-api";
+import {EventDescriptionApi} from "../api/event-description-api";
 
 export default defineComponent({
   data() {
@@ -66,7 +74,11 @@ export default defineComponent({
       title: "",
       address: "",
       dateTime: "2017-06-01T08:30",
-      description: ""
+      description: "",
+      imageId: "",
+      eventId: "",
+      descriptionId: "",
+      eventApi: new EventApi(),
     }
   },
   computed: {
@@ -79,22 +91,52 @@ export default defineComponent({
     isAddressValid() {
       return this.address.length > 0
     },
+    isImageIdValid() {
+      return "" !== this.imageId;
+    },
     isDataValid() {
       return (this.isTitleValid && this.isAddressValid && this.isDateTimeValid)
     }
   },
   methods: {
-    clickHandler() {
+    async clickHandler() {
       if (!this.isDataValid) {
         return
       }
 
-      (new EventApi()).createEvent(this.title, this.description, this.dateTime, this.address).then(res => {
+      // save description
+      if (this.description.length) {
+        this.descriptionId = await this.saveDescription(this.description)
+      }
+
+      this.eventApi.createEvent(this.title, this.description, this.dateTime, this.address).then(res => {
         if (res.success) {
-          window.location = '/'
+          this.eventId = res.data.id;
+          if (this.isImageIdValid && this.eventId) {
+            this.saveEventImage(this.eventId, this.imageId);
+          }
+
+          if (this.descriptionId) {
+            this.saveDescriptionToEvent(this.eventId, this.descriptionId)
+          }
+          // window.location = '/'
         }
       });
     },
+    uploadImageHandler(event) {
+      new ImageApi().uploadImage(event.target.files[0])
+          .then(r => this.imageId = r.data)
+          .catch(e => console.log(e))
+    },
+    saveEventImage(eventId, imageId) {
+      this.eventApi.saveImageId(eventId,imageId)
+    },
+    saveDescription(description) {
+      return new EventDescriptionApi().saveDescription(description).then(r => this.descriptionId = r.data)
+    },
+    saveDescriptionToEvent(eventId, descriptionId) {
+      this.eventApi.saveDescriptionId(eventId, descriptionId)
+    }
   },
 })
 </script>

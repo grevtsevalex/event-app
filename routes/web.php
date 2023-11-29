@@ -31,7 +31,7 @@ Route::get('/create-event', function () {
 	return view('welcome');
 })->middleware(Authenticate::class);
 	
-	Route::controller(ImageController::class)->group(function(){
-		Route::get('/image-upload', 'index')->name('image.form');
-		Route::post('/upload-image', 'storeImage')->name('image.store');
-	});
+//	Route::controller(ImageController::class)->group(function(){
+//		Route::get('/image-upload', 'index')->name('image.form');
+//		Route::post('/upload-image', 'storeImage')->name('image.store');
+//	});

@@ -2,7 +2,8 @@
   <ul role="list" class="divide-y divide-gray-100 events-list">
     <li v-for="event in events" :key="event.id" class="flex justify-between gap-x-6 py-5">
       <div class="flex min-w-0 gap-x-4">
-        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" alt="" />
+        <img v-if="images[event.id]" class="h-12 w-12 flex-none rounded-full bg-gray-50" alt="" :src="images[event.id]"/>
+        <img v-else class="h-12 w-12 flex-none rounded-full bg-gray-50" alt="" src="../../images/def-event.jpg"/>
         <div class="min-w-0 flex-auto">
           <p class="text-sm font-semibold leading-6 text-gray-900">{{ event.title }}</p>
           <p class="mt-1 truncate text-xs leading-5 text-gray-500">{{ event.address }}</p>
@@ -27,15 +28,21 @@
 <script>
 import {defineComponent} from "vue";
 import {EventApi} from "../api/event-api";
+import {ImageApi} from "../api/image-api";
 
 export default defineComponent({
   data() {
     return {
       events: [],
+      images: {},
     }
   },
-  mounted() {
-    new EventApi().getAllEvents().then(data => this.events = data.data);
+  async mounted() {
+    const data = await new EventApi().getAllEvents();
+    this.events = data.data;
+
+    this.events.forEach((event) => new ImageApi().getImage(event.id)
+        .then(image => this.images[event.id] = image.url))
   }
 })
 </script>

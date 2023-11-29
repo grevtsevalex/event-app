@@ -91,6 +91,8 @@ class EventController extends Controller
 			Event::ATTR_TITLE     => 'string',
 			Event::ATTR_ADDRESS   => 'string',
 			Event::ATTR_DATE_TIME => 'date',
+			Event::ATTR_IMAGE_ID => 'int',
+			Event::ATTR_DESCRIPTION_ID => 'int',
 		]);
 		
 		if ($validator->fails()) {

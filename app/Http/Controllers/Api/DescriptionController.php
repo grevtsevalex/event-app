@@ -4,30 +4,25 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\ApiResponse;
-use App\Models\Event;
-use App\Models\EventImage;
+use App\Models\EventDescription;
 use Illuminate\Http\Request;
 
-class ImageController extends Controller
+class DescriptionController extends Controller
 {
 	// Store Image
 	public function store(Request $request): ApiResponse
 	{
 		$request->validate([
-			'image' => 'required|image|mimes:png,jpg,jpeg|max:2048'
+			'description' => 'required|string'
 		]);
 		
-		$imageName = time().'.'.$request->image->extension();
-		// Public Folder
-		$request->image->move(public_path('images'), $imageName);
-		$url = url('images', $imageName);
+		$description = new EventDescription();
+		$description->description = html_entity_decode($request->description);
+		$description->save();
 		
-		$image = new EventImage();
-		$image->url = $url;
-		$image->save();
-		$imageId = $image->getQueueableId();
+		$descriptionId = $description->getQueueableId();
 		
-		return (new ApiResponse())->setContent($imageId);
+		return (new ApiResponse())->setContent($descriptionId);
 	}
 	
 	/**
@@ -40,7 +35,7 @@ class ImageController extends Controller
 	{
 		$response = new ApiResponse();
 		try {
-			$event = EventImage::find($id);
+			$event = EventDescription::find($id);
 			return $response->setContent($event)->setStatusCode($event === null ? 404 : 200);
 		}
 		catch (Throwable $e) {
