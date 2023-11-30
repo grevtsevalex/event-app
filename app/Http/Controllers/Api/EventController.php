@@ -130,4 +130,22 @@ class EventController extends Controller
 		
 		return $response->setContent(true, true, 'Event delete successfully')->setStatusCode(200);
     }
+	
+	/**
+	 * Get events by author_id.
+	 *
+	 * @param  int $authorId
+	 * @return ApiResponse
+	 */
+	public function getByAuthorId(int $authorId): ApiResponse {
+		$response = new ApiResponse();
+		
+		try {
+			$events = Event::where(Event::ATTR_AUTHOR_ID, $authorId)->orderBy(Event::ATTR_DATE_TIME)->get();
+			return $response->setContent($events)->setStatusCode(200);
+		}
+		catch(Throwable) {
+			return $response->setContent([])->setStatusCode(500);
+		}
+	}
 }

@@ -25,6 +25,16 @@ export default createRouter({
             meta: { requiresAuth: true }
         },
         {
+            path: '/edit-event',
+            component: () => import('./pages/EditEvent.vue'),
+            meta: { requiresAuth: true }
+        },
+        {
+            path: '/my-events',
+            component: () => import('./pages/MyEvents.vue'),
+            meta: { requiresAuth: true }
+        },
+        {
             path: '/:pathMatch(.*)*',
             component: () => import('./pages/404.vue')
         }

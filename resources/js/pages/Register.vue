@@ -84,7 +84,7 @@ export default defineComponent({
         return
       }
 
-      (new AuthApi()).register(this.email, this.pass, this.c_pass, this.login);
+      (new AuthApi()).register(this.email, this.pass, this.c_pass, this.login).then;
     },
   },
 })

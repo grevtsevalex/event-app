@@ -35,6 +35,7 @@ class Event extends Model
 	const ATTR_ADDRESS = 'address';
 	const ATTR_IMAGE_ID = 'image_id';
 	const ATTR_DESCRIPTION_ID = 'description_id';
+	const ATTR_AUTHOR_ID = 'author_id';
 	
 	/**
 	 * The attributes that are mass assignable.
@@ -47,5 +48,6 @@ class Event extends Model
 		self::ATTR_ADDRESS,
 		self::ATTR_IMAGE_ID,
 		self::ATTR_DESCRIPTION_ID,
+		self::ATTR_AUTHOR_ID,
 	];
 }

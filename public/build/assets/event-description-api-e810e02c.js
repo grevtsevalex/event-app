@@ -1,0 +1,1 @@
+import{F as s}from"./FetchHelper-4d43fdcd.js";class r{saveDescription(t){return s.sendPost("http://localhost/api/event-descriptions",JSON.stringify({description:t})).catch(e=>console.log(e))}}export{r as E};

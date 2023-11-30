@@ -9,7 +9,7 @@ export class AuthApi {
     public register(email, password, c_password, loginName): void {
         FetchHelper.sendPost('http://localhost/api/register', JSON.stringify({
             email, password, c_password, name: loginName
-        })).then(res => console.log(res))
+        }))
     }
 
     public logout(): Promise<any> {

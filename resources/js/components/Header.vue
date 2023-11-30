@@ -111,5 +111,9 @@ const products = [
   { name: 'Все события', description: 'Список ближайших мероприятий', href: '/', icon: CursorArrowRaysIcon }
 ]
 
+if (false === isGuest) {
+  products.push({ name: 'Мои события', description: 'Список моих мероприятий', href: '/my-events', icon: CursorArrowRaysIcon })
+}
+
 const mobileMenuOpen = ref(false)
 </script>

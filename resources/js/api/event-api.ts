@@ -25,4 +25,8 @@ export class EventApi {
     public getAllEvents(): Promise<any> {
         return FetchHelper.sendGet('http://localhost/api/events')
     }
+
+    public getEventsByAuthorId(authorId: string): Promise<any> {
+        return FetchHelper.sendGet(`http://localhost/api/events/get-by-author-id/${authorId}`)
+    }
 }
