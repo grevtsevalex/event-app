@@ -1,16 +1,16 @@
 {
   "EventList.css": {
-    "file": "assets/EventList-118fc070.css",
+    "file": "assets/EventList-c1006a15.css",
     "src": "EventList.css"
   },
-  "_EventList-d64e60df.js": {
+  "_EventList-fb17040d.js": {
     "assets": [
       "assets/def-event-efa26e84.jpg"
     ],
     "css": [
-      "assets/EventList-118fc070.css"
+      "assets/EventList-c1006a15.css"
     ],
-    "file": "assets/EventList-d64e60df.js",
+    "file": "assets/EventList-fb17040d.js",
     "imports": [
       "_image-api-70365ac7.js",
       "resources/js/app.js"
@@ -71,7 +71,7 @@
       "resources/js/pages/404.vue",
       "resources/js/bootstrap.js"
     ],
-    "file": "assets/app-159ea8de.js",
+    "file": "assets/app-e7c5d0dd.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -84,7 +84,7 @@
     "css": [
       "assets/app-6aaa0ce1.css"
     ],
-    "file": "assets/404-ca62d7cb.js",
+    "file": "assets/404-9c5f6dc2.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -95,7 +95,7 @@
     "css": [
       "assets/app-6aaa0ce1.css"
     ],
-    "file": "assets/Auth-980f0bfd.js",
+    "file": "assets/Auth-0f884023.js",
     "imports": [
       "resources/js/app.js",
       "_auth-api-3eaa545c.js",
@@ -109,7 +109,7 @@
     "css": [
       "assets/app-6aaa0ce1.css"
     ],
-    "file": "assets/CreateEvent-94f16bf4.js",
+    "file": "assets/CreateEvent-a65c5520.js",
     "imports": [
       "resources/js/app.js",
       "_image-api-70365ac7.js",
@@ -123,7 +123,7 @@
     "css": [
       "assets/app-6aaa0ce1.css"
     ],
-    "file": "assets/EventCard-dda3dc54.js",
+    "file": "assets/EventCard-f49dc88c.js",
     "imports": [
       "_image-api-70365ac7.js",
       "_event-description-api-1430de42.js",
@@ -137,10 +137,10 @@
     "css": [
       "assets/app-6aaa0ce1.css"
     ],
-    "file": "assets/Main-937e2298.js",
+    "file": "assets/Main-30afbba8.js",
     "imports": [
       "_image-api-70365ac7.js",
-      "_EventList-d64e60df.js",
+      "_EventList-fb17040d.js",
       "resources/js/app.js",
       "_FetchHelper-4d43fdcd.js"
     ],
@@ -151,10 +151,10 @@
     "css": [
       "assets/app-6aaa0ce1.css"
     ],
-    "file": "assets/MyEvents-42736864.js",
+    "file": "assets/MyEvents-9a3f0aad.js",
     "imports": [
       "_image-api-70365ac7.js",
-      "_EventList-d64e60df.js",
+      "_EventList-fb17040d.js",
       "resources/js/app.js",
       "_FetchHelper-4d43fdcd.js"
     ],
@@ -165,7 +165,7 @@
     "css": [
       "assets/app-6aaa0ce1.css"
     ],
-    "file": "assets/Profile-984aa536.js",
+    "file": "assets/Profile-f49ff346.js",
     "imports": [
       "_auth-api-3eaa545c.js",
       "resources/js/app.js",
@@ -178,7 +178,7 @@
     "css": [
       "assets/app-6aaa0ce1.css"
     ],
-    "file": "assets/Register-b360e2b1.js",
+    "file": "assets/Register-66ba650c.js",
     "imports": [
       "resources/js/app.js",
       "_auth-api-3eaa545c.js",

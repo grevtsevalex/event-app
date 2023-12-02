@@ -31,14 +31,7 @@ import {defineComponent} from "vue";
 import {EventApi} from "../api/event-api";
 import {EventDescriptionApi} from "../api/event-description-api";
 import {ImageApi} from "../api/image-api";
-
-const LoadingStatus = {
-  NOT_LOADED: 0,
-  LOADING: 1,
-  SUCCESS_LOADED: 2,
-  ERROR_LOADED: 3,
-  ERROR: 4,
-}
+import {LoadingStatus} from "../scripts/constants.ts";
 export default defineComponent({
 
   data() {
