@@ -91,7 +91,8 @@ export default defineComponent({
       (new AuthApi()).emailAndPassAuthorization(this.email, this.pass).then(data => {
         if (data.data) {
           this.$store.commit('setIsAuthenticated', true)
-          this.$store.commit('setUserId', data.id)
+          this.$store.commit('setUserId', data.data.id)
+          localStorage.setItem('userId', data.data.id)
           window.location = '/'
         }
       });

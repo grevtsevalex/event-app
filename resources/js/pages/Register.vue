@@ -84,7 +84,12 @@ export default defineComponent({
         return
       }
 
-      (new AuthApi()).register(this.email, this.pass, this.c_pass, this.login).then;
+      (new AuthApi()).register(this.email, this.pass, this.c_pass, this.login)
+          .then(data => {
+            this.$store.commit('setIsAuthenticated', true)
+            this.$store.commit('setUserId', data.id)
+            window.location = '/'
+      });
     },
   },
 })

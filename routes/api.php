@@ -32,3 +32,7 @@ Route::controller(AuthController::class)->group(function() {
 Route::apiResource('events', EventController::class);
 Route::apiResource('event-images', ImageController::class);
 Route::apiResource('event-descriptions', DescriptionController::class);
+
+Route::controller(EventController::class)->group(function () {
+	Route::get('/events/get-by-author-id/{authorId}', 'getByAuthorId');
+});

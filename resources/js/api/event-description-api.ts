@@ -6,4 +6,8 @@ export class EventDescriptionApi {
         return FetchHelper.sendPost('http://localhost/api/event-descriptions', JSON.stringify({description}))
             .catch(e => console.log(e))
     }
+
+    public getDescription(id: number) {
+        return FetchHelper.sendGet(`http://localhost/api/event-descriptions/${id}`)
+    }
 }

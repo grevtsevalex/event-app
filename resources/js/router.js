@@ -25,9 +25,8 @@ export default createRouter({
             meta: { requiresAuth: true }
         },
         {
-            path: '/edit-event',
-            component: () => import('./pages/EditEvent.vue'),
-            meta: { requiresAuth: true }
+            path: '/event/:id',
+            component: () => import('./pages/EventCard.vue'),
         },
         {
             path: '/my-events',

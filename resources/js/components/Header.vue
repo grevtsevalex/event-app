@@ -112,6 +112,7 @@ const products = [
 ]
 
 if (false === isGuest) {
+  console.log(useStore().getters.getUserId)
   products.push({ name: 'Мои события', description: 'Список моих мероприятий', href: '/my-events', icon: CursorArrowRaysIcon })
 }
 

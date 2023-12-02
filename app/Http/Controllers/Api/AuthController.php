@@ -42,7 +42,7 @@ class AuthController extends Controller
         }
 
         $data['token'] = $user->createToken('us-tok-el')->plainTextToken;
-        $data['id']  = $user->id;
+        $data['id'] = $user->id;
 
         return $response->setContent($data, true, 'User register successfully');
     }

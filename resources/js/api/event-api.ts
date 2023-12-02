@@ -2,9 +2,9 @@ import {FetchHelper} from "../scripts/FetchHelper";
 
 export class EventApi {
 
-    public createEvent(title: string, description: string, dateTime: string, address: string): Promise<any> {
+    public createEvent(title: string, description: string, dateTime: string, address: string, author_id): Promise<any> {
         return FetchHelper.sendPost('http://localhost/api/events', JSON.stringify({
-            title, date_time: dateTime, address, description
+            title, date_time: dateTime, address, description, author_id
         }))
     }
 
@@ -26,7 +26,11 @@ export class EventApi {
         return FetchHelper.sendGet('http://localhost/api/events')
     }
 
-    public getEventsByAuthorId(authorId: string): Promise<any> {
+    public getEventsByAuthorId(authorId: number): Promise<any> {
         return FetchHelper.sendGet(`http://localhost/api/events/get-by-author-id/${authorId}`)
+    }
+
+    public getEvent(id: number) {
+        return FetchHelper.sendGet(`http://localhost/api/events/${id}`)
     }
 }

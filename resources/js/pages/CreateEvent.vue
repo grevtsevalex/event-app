@@ -95,8 +95,11 @@ export default defineComponent({
       return "" !== this.imageId;
     },
     isDataValid() {
-      return (this.isTitleValid && this.isAddressValid && this.isDateTimeValid)
-    }
+      return (this.isTitleValid && this.isAddressValid && this.isDateTimeValid && this.userId)
+    },
+    userId() {
+      return this.$store.getters.getUserId || localStorage.getItem('userId')
+    },
   },
   methods: {
     async clickHandler() {
@@ -109,7 +112,7 @@ export default defineComponent({
         this.descriptionId = await this.saveDescription(this.description)
       }
 
-      this.eventApi.createEvent(this.title, this.description, this.dateTime, this.address).then(res => {
+      this.eventApi.createEvent(this.title, this.description, this.dateTime, this.address, this.userId).then(res => {
         if (res.success) {
           this.eventId = res.data.id;
           if (this.isImageIdValid && this.eventId) {
