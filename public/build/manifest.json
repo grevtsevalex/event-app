@@ -3,16 +3,16 @@
     "file": "assets/EventList-c1006a15.css",
     "src": "EventList.css"
   },
-  "_EventList-fb17040d.js": {
+  "_EventList-bdbcec9a.js": {
     "assets": [
       "assets/def-event-efa26e84.jpg"
     ],
     "css": [
       "assets/EventList-c1006a15.css"
     ],
-    "file": "assets/EventList-fb17040d.js",
+    "file": "assets/EventList-bdbcec9a.js",
     "imports": [
-      "_image-api-70365ac7.js",
+      "_image-api-64f10201.js",
       "resources/js/app.js"
     ]
   },
@@ -34,14 +34,14 @@
       "_FetchHelper-4d43fdcd.js"
     ]
   },
-  "_image-api-70365ac7.js": {
-    "file": "assets/image-api-70365ac7.js",
+  "_image-api-64f10201.js": {
+    "file": "assets/image-api-64f10201.js",
     "imports": [
       "_FetchHelper-4d43fdcd.js"
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-6aaa0ce1.css",
+    "file": "assets/app-20ad30e0.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -58,7 +58,7 @@
       "assets/logo-12a420d8.jpg"
     ],
     "css": [
-      "assets/app-6aaa0ce1.css"
+      "assets/app-20ad30e0.css"
     ],
     "dynamicImports": [
       "resources/js/pages/Main.vue",
@@ -67,11 +67,12 @@
       "resources/js/pages/Register.vue",
       "resources/js/pages/CreateEvent.vue",
       "resources/js/pages/EventCard.vue",
+      "resources/js/pages/EditEvent.vue",
       "resources/js/pages/MyEvents.vue",
       "resources/js/pages/404.vue",
       "resources/js/bootstrap.js"
     ],
-    "file": "assets/app-e7c5d0dd.js",
+    "file": "assets/app-2222c248.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -82,9 +83,9 @@
   },
   "resources/js/pages/404.vue": {
     "css": [
-      "assets/app-6aaa0ce1.css"
+      "assets/app-20ad30e0.css"
     ],
-    "file": "assets/404-9c5f6dc2.js",
+    "file": "assets/404-151458d6.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -93,9 +94,9 @@
   },
   "resources/js/pages/Auth.vue": {
     "css": [
-      "assets/app-6aaa0ce1.css"
+      "assets/app-20ad30e0.css"
     ],
-    "file": "assets/Auth-0f884023.js",
+    "file": "assets/Auth-d01bba0d.js",
     "imports": [
       "resources/js/app.js",
       "_auth-api-3eaa545c.js",
@@ -107,25 +108,44 @@
   },
   "resources/js/pages/CreateEvent.vue": {
     "css": [
-      "assets/app-6aaa0ce1.css"
+      "assets/app-20ad30e0.css"
     ],
-    "file": "assets/CreateEvent-a65c5520.js",
+    "file": "assets/CreateEvent-2029ad02.js",
     "imports": [
       "resources/js/app.js",
-      "_image-api-70365ac7.js",
+      "_image-api-64f10201.js",
       "_event-description-api-1430de42.js",
       "_FetchHelper-4d43fdcd.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/CreateEvent.vue"
   },
+  "resources/js/pages/EditEvent.vue": {
+    "css": [
+      "assets/app-20ad30e0.css"
+    ],
+    "file": "assets/EditEvent-9d46554d.js",
+    "imports": [
+      "resources/js/app.js",
+      "_image-api-64f10201.js",
+      "_event-description-api-1430de42.js",
+      "_FetchHelper-4d43fdcd.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/EditEvent.vue"
+  },
+  "resources/js/pages/EventCard.css": {
+    "file": "assets/EventCard-c17893a5.css",
+    "src": "resources/js/pages/EventCard.css"
+  },
   "resources/js/pages/EventCard.vue": {
     "css": [
-      "assets/app-6aaa0ce1.css"
+      "assets/EventCard-c17893a5.css",
+      "assets/app-20ad30e0.css"
     ],
-    "file": "assets/EventCard-f49dc88c.js",
+    "file": "assets/EventCard-387fb31e.js",
     "imports": [
-      "_image-api-70365ac7.js",
+      "_image-api-64f10201.js",
       "_event-description-api-1430de42.js",
       "resources/js/app.js",
       "_FetchHelper-4d43fdcd.js"
@@ -135,12 +155,12 @@
   },
   "resources/js/pages/Main.vue": {
     "css": [
-      "assets/app-6aaa0ce1.css"
+      "assets/app-20ad30e0.css"
     ],
-    "file": "assets/Main-30afbba8.js",
+    "file": "assets/Main-89143324.js",
     "imports": [
-      "_image-api-70365ac7.js",
-      "_EventList-fb17040d.js",
+      "_image-api-64f10201.js",
+      "_EventList-bdbcec9a.js",
       "resources/js/app.js",
       "_FetchHelper-4d43fdcd.js"
     ],
@@ -149,12 +169,12 @@
   },
   "resources/js/pages/MyEvents.vue": {
     "css": [
-      "assets/app-6aaa0ce1.css"
+      "assets/app-20ad30e0.css"
     ],
-    "file": "assets/MyEvents-9a3f0aad.js",
+    "file": "assets/MyEvents-4b4896f8.js",
     "imports": [
-      "_image-api-70365ac7.js",
-      "_EventList-fb17040d.js",
+      "_image-api-64f10201.js",
+      "_EventList-bdbcec9a.js",
       "resources/js/app.js",
       "_FetchHelper-4d43fdcd.js"
     ],
@@ -163,9 +183,9 @@
   },
   "resources/js/pages/Profile.vue": {
     "css": [
-      "assets/app-6aaa0ce1.css"
+      "assets/app-20ad30e0.css"
     ],
-    "file": "assets/Profile-f49ff346.js",
+    "file": "assets/Profile-19a23d57.js",
     "imports": [
       "_auth-api-3eaa545c.js",
       "resources/js/app.js",
@@ -176,9 +196,9 @@
   },
   "resources/js/pages/Register.vue": {
     "css": [
-      "assets/app-6aaa0ce1.css"
+      "assets/app-20ad30e0.css"
     ],
-    "file": "assets/Register-66ba650c.js",
+    "file": "assets/Register-a59e3888.js",
     "imports": [
       "resources/js/app.js",
       "_auth-api-3eaa545c.js",

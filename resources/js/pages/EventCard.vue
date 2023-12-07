@@ -1,5 +1,6 @@
 <template>
-  <div class="bg-white" v-if="event">
+  <div class="event-card bg-white" v-if="event">
+    <button v-if="isMyEvent" type="button" @click="editButtonClickHandler" class="edit-button rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Редактировать</button>
     <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
       <div>
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ event.title }}</h2>
@@ -26,12 +27,24 @@
   </div>
 </template>
 
+<style scoped>
+.event-card {
+  display: flex;
+  flex-direction: column;
+}
+.edit-button {
+  align-self: flex-end;
+  margin-right: 2em;
+}
+</style>
+
 <script>
 import {defineComponent} from "vue";
 import {EventApi} from "../api/event-api";
 import {EventDescriptionApi} from "../api/event-description-api";
 import {ImageApi} from "../api/image-api";
 import {LoadingStatus} from "../scripts/constants.ts";
+import store from "../store";
 export default defineComponent({
 
   data() {
@@ -57,7 +70,16 @@ export default defineComponent({
   computed: {
     eventId() {
       return location.href.split('/').pop()
-    }
+    },
+    isAuthenticated() {
+      return this.$store.getters.getIsAuthenticated
+    },
+    isMyEvent() {
+      return this.isAuthenticated && (this.event.author_id === this.userId)
+    },
+    userId() {
+      return Number(this.$store.getters.getUserId || localStorage.getItem('userId'));
+    },
   },
   methods: {
     loadDescription() {
@@ -78,6 +100,12 @@ export default defineComponent({
         }
         this.imageUrl = image.url
       })
+    },
+    editButtonClickHandler() {
+      this.goToEditPage()
+    },
+    goToEditPage() {
+      this.$router.push(`/edit-event/${this.event.id}`)
     },
   },
   watch: {

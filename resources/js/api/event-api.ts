@@ -9,17 +9,15 @@ export class EventApi {
     }
 
     public saveImageId(eventId, imageId) {
-        return this.updateEvent(eventId, 'image_id', imageId);
+        return this.updateEvent(eventId, {image_id: imageId});
     }
 
     public saveDescriptionId(eventId, descriptionId) {
-        return this.updateEvent(eventId, 'description_id', descriptionId);
+        return this.updateEvent(eventId, {description_id: descriptionId});
     }
 
-    public updateEvent(id, column, value) {
-        return FetchHelper.sendPatch(`http://localhost/api/events/${id}`, JSON.stringify({
-            [column]: value,
-        }))
+    public updateEvent(id, event) {
+        return FetchHelper.sendPatch(`http://localhost/api/events/${id}`, JSON.stringify(event))
     }
 
     public getAllEvents(): Promise<any> {

@@ -34,6 +34,10 @@
 		return view('welcome');
 	});
 	
+	Route::get('/edit-event/{id}', function () {
+		return view('welcome');
+	});
+	
 	Route::get('/create-event', function () {
 		return view('welcome');
 	})->middleware(Authenticate::class);

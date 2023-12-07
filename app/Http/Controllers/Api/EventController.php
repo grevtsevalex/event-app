@@ -141,7 +141,7 @@ class EventController extends Controller
 		$response = new ApiResponse();
 		
 		try {
-			$events = Event::where(Event::ATTR_AUTHOR_ID, $authorId)->orderBy(Event::ATTR_DATE_TIME)->get();
+			$events = Event::where(Event::ATTR_AUTHOR_ID, $authorId)->orderBy(Event::ATTR_DATE_TIME, 'desc')->get();
 			return $response->setContent($events)->setStatusCode(200);
 		}
 		catch(Throwable) {
