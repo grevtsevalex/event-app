@@ -49,7 +49,7 @@
   .buttons {
     display: flex;
     align-items: baseline;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   .exit-button {

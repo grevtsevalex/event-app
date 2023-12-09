@@ -97,7 +97,7 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from '@headlessui/vue'
-import {Bars3Icon, CursorArrowRaysIcon, XMarkIcon,} from '@heroicons/vue/24/outline'
+import {Bars3Icon, CursorArrowRaysIcon, XMarkIcon, CalendarIcon, CalendarDaysIcon} from '@heroicons/vue/24/outline'
 import {ChevronDownIcon} from '@heroicons/vue/20/solid'
 import {useStore} from "vuex";
 
@@ -108,11 +108,11 @@ const buttonTitle = isGuest ? 'Войти' : 'Профиль'
 const buttonUrl = isGuest ? '/auth' : '/profile'
 const products = [
   { name: 'Создать событие', description: 'Планируйте и проводите мероприятия вместе с нами', href: '/create-event', icon: CursorArrowRaysIcon },
-  { name: 'Все события', description: 'Список ближайших мероприятий', href: '/', icon: CursorArrowRaysIcon }
+  { name: 'Все события', description: 'Список ближайших мероприятий', href: '/', icon: CalendarIcon }
 ]
 
 if (false === isGuest) {
-  products.push({ name: 'Мои события', description: 'Список моих мероприятий', href: '/my-events', icon: CursorArrowRaysIcon })
+  products.push({ name: 'Мои события', description: 'Список моих мероприятий', href: '/my-events', icon: CalendarDaysIcon })
 }
 
 const mobileMenuOpen = ref(false)

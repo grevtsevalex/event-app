@@ -45,7 +45,7 @@ export default defineComponent({
     },
 
     goToEventCard() {
-      this.$router.push(`event/${this.event.id}`)
+      this.$router.push(`/event/${this.event.id}`)
     },
 
     loadImage() {

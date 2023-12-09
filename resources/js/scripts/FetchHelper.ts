@@ -44,4 +44,16 @@ export class FetchHelper {
             body: data
         }).then(res => res.json())
     }
+
+    public static sendDelete(url: string, headers = {}): any {
+        return fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': FetchHelper.getCSRF(),
+                'Content-Type': 'application/json;charset=utf-8',
+                ...headers
+            },
+            credentials: "include",
+        }).then(res => res.json())
+    }
 }

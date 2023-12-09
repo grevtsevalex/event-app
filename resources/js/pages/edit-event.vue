@@ -53,12 +53,21 @@
       </div>
     </div>
 
-    <div class="mt-6 flex items-center justify-end gap-x-6">
+    <div class="buttons mt-6 flex items-center justify-end gap-x-6">
       <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Отмена</button>
       <button type="button" @click="clickHandler" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Сохранить</button>
+      <button type="button" @click="deleteButtonClickHandler" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Удалить</button>
     </div>
   </form>
 </template>
+
+<style scoped>
+.buttons {
+  display: flex;
+  align-items: baseline;
+}
+
+</style>
 
 <script>
 import {defineComponent} from "vue";
@@ -185,7 +194,6 @@ export default defineComponent({
         this.description = data.data.description
       })
     },
-
     loadImage() {
       if (!this.imageId) {
         return
@@ -196,6 +204,13 @@ export default defineComponent({
         }
         this.imageUrl = image.url
       })
+    },
+    deleteButtonClickHandler() {
+      this.deleteEvent()
+      this.goToMyEvents()
+    },
+    deleteEvent() {
+      this.eventApi.delete(this.eventId)
     },
   },
 })

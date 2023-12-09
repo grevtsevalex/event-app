@@ -31,4 +31,8 @@ export class EventApi {
     public getEvent(id: number) {
         return FetchHelper.sendGet(`http://localhost/api/events/${id}`)
     }
+
+    public delete(id: number) {
+        return FetchHelper.sendDelete(`http://localhost/api/events/${id}`)
+    }
 }
