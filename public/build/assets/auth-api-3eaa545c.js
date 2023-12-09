@@ -1,1 +1,0 @@
-import{F as s}from"./FetchHelper-4d43fdcd.js";class l{emailAndPassAuthorization(t,o){return s.sendPost("http://localhost/api/login",JSON.stringify({email:t,password:o}))}register(t,o,e,r){return s.sendPost("http://localhost/api/register",JSON.stringify({email:t,password:o,c_password:e,name:r}))}logout(){return s.sendGet("http://localhost/api/logout")}}export{l as A};

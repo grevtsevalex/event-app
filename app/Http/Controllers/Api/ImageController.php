@@ -27,7 +27,7 @@ class ImageController extends Controller
 		$image->save();
 		$imageId = $image->getQueueableId();
 		
-		return (new ApiResponse())->setContent($imageId);
+		return (new ApiResponse())->setContent(['id' => $imageId, 'url' => $url]);
 	}
 	
 	/**
