@@ -13,13 +13,13 @@ export class UserApi {
         if (false === this.checkToken()) {
             return Promise.reject()
         }
-        return FetchHelper.sendGet('http://localhost/api/user', this.getAuthHeader())
+        return FetchHelper.sendGet('/api/user', this.getAuthHeader())
     }
 
     public updateUser(user) {
         if (false === this.checkToken()) {
             return Promise.reject()
         }
-        return FetchHelper.sendPatch('http://localhost/api/user', JSON.stringify(user), this.getAuthHeader())
+        return FetchHelper.sendPatch('/api/user', JSON.stringify(user), this.getAuthHeader())
     }
 }

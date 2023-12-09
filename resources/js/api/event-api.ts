@@ -3,7 +3,7 @@ import {FetchHelper} from "../scripts/FetchHelper";
 export class EventApi {
 
     public createEvent(title: string, description: string, dateTime: string, address: string, author_id): Promise<any> {
-        return FetchHelper.sendPost('http://localhost/api/events', JSON.stringify({
+        return FetchHelper.sendPost('/api/events', JSON.stringify({
             title, date_time: dateTime, address, description, author_id
         }))
     }
@@ -17,22 +17,22 @@ export class EventApi {
     }
 
     public updateEvent(id, event) {
-        return FetchHelper.sendPatch(`http://localhost/api/events/${id}`, JSON.stringify(event))
+        return FetchHelper.sendPatch(`/api/events/${id}`, JSON.stringify(event))
     }
 
     public getAllEvents(): Promise<any> {
-        return FetchHelper.sendGet('http://localhost/api/events')
+        return FetchHelper.sendGet('/api/events')
     }
 
     public getEventsByAuthorId(authorId: number): Promise<any> {
-        return FetchHelper.sendGet(`http://localhost/api/events/get-by-author-id/${authorId}`)
+        return FetchHelper.sendGet(`/api/events/get-by-author-id/${authorId}`)
     }
 
     public getEvent(id: number) {
-        return FetchHelper.sendGet(`http://localhost/api/events/${id}`)
+        return FetchHelper.sendGet(`/api/events/${id}`)
     }
 
     public delete(id: number) {
-        return FetchHelper.sendDelete(`http://localhost/api/events/${id}`)
+        return FetchHelper.sendDelete(`/api/events/${id}`)
     }
 }

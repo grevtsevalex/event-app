@@ -5,39 +5,39 @@
   "_Validators-a31ce396.js": {
     "file": "assets/Validators-a31ce396.js"
   },
-  "_auth-api-b19e588d.js": {
-    "file": "assets/auth-api-b19e588d.js",
+  "_auth-api-afac7f7e.js": {
+    "file": "assets/auth-api-afac7f7e.js",
     "imports": [
       "_FetchHelper-952a71bc.js"
     ]
   },
-  "_event-description-api-49467a0f.js": {
-    "file": "assets/event-description-api-49467a0f.js",
+  "_event-description-api-f162d5fd.js": {
+    "file": "assets/event-description-api-f162d5fd.js",
     "imports": [
       "_FetchHelper-952a71bc.js"
     ]
   },
-  "_event-list-806faaa1.js": {
+  "_event-list-481324df.js": {
     "assets": [
       "assets/def-event-efa26e84.jpg"
     ],
     "css": [
       "assets/event-list-c1006a15.css"
     ],
-    "file": "assets/event-list-806faaa1.js",
+    "file": "assets/event-list-481324df.js",
     "imports": [
-      "_image-api-383f6824.js",
+      "_image-api-4d6095b8.js",
       "resources/js/app.js"
     ]
   },
-  "_image-api-383f6824.js": {
-    "file": "assets/image-api-383f6824.js",
+  "_image-api-4d6095b8.js": {
+    "file": "assets/image-api-4d6095b8.js",
     "imports": [
       "_FetchHelper-952a71bc.js"
     ]
   },
-  "_image-uploader-f0915a45.js": {
-    "file": "assets/image-uploader-f0915a45.js",
+  "_image-uploader-1fa979ca.js": {
+    "file": "assets/image-uploader-1fa979ca.js",
     "imports": [
       "resources/js/app.js"
     ]
@@ -78,7 +78,7 @@
       "resources/js/pages/404.vue",
       "resources/js/bootstrap.js"
     ],
-    "file": "assets/app-d8c8893c.js",
+    "file": "assets/app-433d5f58.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -91,7 +91,7 @@
     "css": [
       "assets/app-945fc863.css"
     ],
-    "file": "assets/404-e02b768a.js",
+    "file": "assets/404-d81a2d5d.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -102,10 +102,10 @@
     "css": [
       "assets/app-945fc863.css"
     ],
-    "file": "assets/auth-c871be6e.js",
+    "file": "assets/auth-63c4190d.js",
     "imports": [
       "resources/js/app.js",
-      "_auth-api-b19e588d.js",
+      "_auth-api-afac7f7e.js",
       "_Validators-a31ce396.js",
       "_FetchHelper-952a71bc.js"
     ],
@@ -121,10 +121,10 @@
       "assets/card-event-9b15eb3f.css",
       "assets/app-945fc863.css"
     ],
-    "file": "assets/card-event-585bbabb.js",
+    "file": "assets/card-event-386c486e.js",
     "imports": [
-      "_image-api-383f6824.js",
-      "_event-description-api-49467a0f.js",
+      "_image-api-4d6095b8.js",
+      "_event-description-api-f162d5fd.js",
       "resources/js/app.js",
       "_FetchHelper-952a71bc.js"
     ],
@@ -135,12 +135,12 @@
     "css": [
       "assets/app-945fc863.css"
     ],
-    "file": "assets/create-event-6e73b0a5.js",
+    "file": "assets/create-event-e9a44827.js",
     "imports": [
       "resources/js/app.js",
-      "_image-api-383f6824.js",
-      "_event-description-api-49467a0f.js",
-      "_image-uploader-f0915a45.js",
+      "_image-api-4d6095b8.js",
+      "_event-description-api-f162d5fd.js",
+      "_image-uploader-1fa979ca.js",
       "_FetchHelper-952a71bc.js"
     ],
     "isDynamicEntry": true,
@@ -155,12 +155,12 @@
       "assets/edit-event-14f43881.css",
       "assets/app-945fc863.css"
     ],
-    "file": "assets/edit-event-a9c13588.js",
+    "file": "assets/edit-event-fb831176.js",
     "imports": [
       "resources/js/app.js",
-      "_image-api-383f6824.js",
-      "_event-description-api-49467a0f.js",
-      "_image-uploader-f0915a45.js",
+      "_image-api-4d6095b8.js",
+      "_event-description-api-f162d5fd.js",
+      "_image-uploader-1fa979ca.js",
       "_FetchHelper-952a71bc.js"
     ],
     "isDynamicEntry": true,
@@ -170,10 +170,10 @@
     "css": [
       "assets/app-945fc863.css"
     ],
-    "file": "assets/main-e5e3589a.js",
+    "file": "assets/main-b5f8e662.js",
     "imports": [
-      "_image-api-383f6824.js",
-      "_event-list-806faaa1.js",
+      "_image-api-4d6095b8.js",
+      "_event-list-481324df.js",
       "resources/js/app.js",
       "_FetchHelper-952a71bc.js"
     ],
@@ -184,10 +184,10 @@
     "css": [
       "assets/app-945fc863.css"
     ],
-    "file": "assets/me-events-2ea8cfca.js",
+    "file": "assets/me-events-f5e39c1e.js",
     "imports": [
-      "_image-api-383f6824.js",
-      "_event-list-806faaa1.js",
+      "_image-api-4d6095b8.js",
+      "_event-list-481324df.js",
       "resources/js/app.js",
       "_FetchHelper-952a71bc.js"
     ],
@@ -203,9 +203,9 @@
       "assets/profile-56246e5e.css",
       "assets/app-945fc863.css"
     ],
-    "file": "assets/profile-8fcfc9f7.js",
+    "file": "assets/profile-3633f727.js",
     "imports": [
-      "_auth-api-b19e588d.js",
+      "_auth-api-afac7f7e.js",
       "resources/js/app.js",
       "_FetchHelper-952a71bc.js"
     ],
@@ -216,10 +216,10 @@
     "css": [
       "assets/app-945fc863.css"
     ],
-    "file": "assets/register-86d77c9a.js",
+    "file": "assets/register-17555bc2.js",
     "imports": [
       "resources/js/app.js",
-      "_auth-api-b19e588d.js",
+      "_auth-api-afac7f7e.js",
       "_Validators-a31ce396.js",
       "_FetchHelper-952a71bc.js"
     ],

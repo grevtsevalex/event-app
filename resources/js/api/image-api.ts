@@ -6,7 +6,7 @@ export class ImageApi {
         const data = new FormData();
         data.append('image', file);
 
-        return fetch('http://localhost/api/event-images', {
+        return fetch('/api/event-images', {
             method: 'POST',
             headers: {
                 'X-CSRF-TOKEN': FetchHelper.getCSRF(),
@@ -19,6 +19,6 @@ export class ImageApi {
     }
 
     public getImage(id): Promise<any> {
-        return FetchHelper.sendGet(`http://localhost/api/event-images/${id}`).then(r => r.data);
+        return FetchHelper.sendGet(`/api/event-images/${id}`).then(r => r.data);
     }
 }
