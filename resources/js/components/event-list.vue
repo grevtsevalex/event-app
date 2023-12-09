@@ -12,7 +12,7 @@
 
 <script>
 import {defineComponent} from "vue";
-import EventItem from "./EventItem.vue";
+import EventItem from "./event-item.vue";
 
 export default defineComponent({
   components: {EventItem},

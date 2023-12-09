@@ -2,7 +2,7 @@
   <form class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8" v-on:submit.prevent>
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
-        <h2 class="text-base font-semibold leading-7 text-gray-900">Новое событие</h2>
+        <h2 class="text-base font-semibold leading-7 text-gray-1100">Создание нового события</h2>
         <p class="mt-1 text-sm leading-6 text-gray-600">Создавайте события, приглашайте гостей и участников</p>
 
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -20,7 +20,7 @@
             <div class="mt-2">
               <textarea v-model="description" id="description" name="description" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
             </div>
-            <p class="mt-3 text-sm leading-6 text-gray-600">Расскажите об этом мероприятии</p>
+<!--            <p class="mt-3 text-sm leading-6 text-gray-600">Расскажите об этом мероприятии</p>-->
           </div>
         </div>
       </div>
@@ -47,9 +47,7 @@
           </div>
           <div class="sm:col-span-3">
             <label for="image" class="block text-sm font-medium leading-6 text-gray-900">Картинка</label>
-            <div class="mt-2">
-              <input type="file" @change="uploadImageHandler" name="image" id="image" autocomplete="address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-            </div>
+            <image-uploader :image-url="imageUrl" v-on:previewReady="uploadImageHandler"></image-uploader>
           </div>
         </div>
       </div>
@@ -67,8 +65,10 @@ import {defineComponent} from "vue";
 import {EventApi} from "../api/event-api";
 import {ImageApi} from "../api/image-api";
 import {EventDescriptionApi} from "../api/event-description-api";
+import ImageUploader from "../components/image-uploader.vue";
 
 export default defineComponent({
+  components: {ImageUploader},
   data() {
     return {
       title: "",
@@ -78,6 +78,7 @@ export default defineComponent({
       imageId: "",
       eventId: "",
       descriptionId: "",
+      imageUrl: "",
       eventApi: new EventApi(),
     }
   },
@@ -122,13 +123,20 @@ export default defineComponent({
           if (this.descriptionId) {
             this.saveDescriptionToEvent(this.eventId, this.descriptionId)
           }
-          // window.location = '/'
+
+          this.goToMyEvents()
         }
       });
     },
+    goToMyEvents() {
+      this.$router.push('/my-events/');
+    },
     uploadImageHandler(event) {
       new ImageApi().uploadImage(event.target.files[0])
-          .then(r => this.imageId = r.data)
+          .then(r => {
+            this.imageId = r.data.id
+            this.imageUrl = r.data.url
+          })
           .catch(e => console.log(e))
     },
     saveEventImage(eventId, imageId) {

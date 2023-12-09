@@ -20,23 +20,25 @@ export class FetchHelper {
         }).then(res => res.json())
     }
 
-    public static sendGet(url: string): any {
+    public static sendGet(url: string, headers = {}): any {
         return fetch(url, {
             method: 'GET',
             headers: {
                 'X-CSRF-TOKEN': FetchHelper.getCSRF(),
-                'Content-Type': 'application/json;charset=utf-8'
+                'Content-Type': 'application/json;charset=utf-8',
+                ...headers
             },
             credentials: "include",
         }).then(res => res.json())
     }
 
-    public static sendPatch(url: string, data: string): any {
+    public static sendPatch(url: string, data: string, headers = {}): any {
         return fetch(url, {
             method: 'PATCH',
             headers: {
                 'X-CSRF-TOKEN': FetchHelper.getCSRF(),
-                'Content-Type': 'application/json;charset=utf-8'
+                'Content-Type': 'application/json;charset=utf-8',
+                ...headers
             },
             credentials: "include",
             body: data

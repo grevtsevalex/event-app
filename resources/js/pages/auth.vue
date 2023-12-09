@@ -92,7 +92,9 @@ export default defineComponent({
         if (data.data) {
           this.$store.commit('setIsAuthenticated', true)
           this.$store.commit('setUserId', data.data.id)
+          this.$store.commit('setToken', data.data.token)
           localStorage.setItem('userId', data.data.id)
+          localStorage.setItem('ifh_duf1k', data.data.token)
           window.location = '/'
         }
       });

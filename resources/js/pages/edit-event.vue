@@ -2,8 +2,8 @@
   <form class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8" v-on:submit.prevent>
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
-        <h2 class="text-base font-semibold leading-7 text-gray-900">Новое событие</h2>
-        <p class="mt-1 text-sm leading-6 text-gray-600">Создавайте события, приглашайте гостей и участников</p>
+        <h2 class="text-base font-semibold leading-7 text-gray-1100">Редактирование события</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600">Редактируйте информацию и сохраняйте ихменения.</p>
 
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-4">
@@ -20,7 +20,7 @@
             <div class="mt-2">
               <textarea v-model="description" id="description" name="description" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
             </div>
-            <p class="mt-3 text-sm leading-6 text-gray-600">Расскажите об этом мероприятии</p>
+<!--            <p class="mt-3 text-sm leading-6 text-gray-600">Расскажите об этом мероприятии</p>-->
           </div>
         </div>
       </div>
@@ -47,24 +47,7 @@
           </div>
           <div class="sm:col-span-3">
             <label for="image" class="block text-sm font-medium leading-6 text-gray-900">Картинка</label>
-            <div class="mt-2">
-              <div class="flex items-center space-x-6">
-                <div class="shrink-0">
-                  <img id='preview_img' class="h-40 w-40 object-cover rounded-full" :src="imageUrl" alt="Текущая картинка события" />
-                </div>
-                <label class="block">
-                  <span class="sr-only">Выберете картинку</span>
-                  <input name="image" id="image" type="file" @change="uploadImageHandler" class="block w-full text-sm text-slate-500
-        file:mr-4 file:py-2 file:px-4
-        file:rounded-md file:border-0
-        file:text-sm file:font-semibold
-        file:bg-violet-50 file:text-violet-700
-        hover:file:bg-violet-100
-      "/>
-                </label>
-              </div>
-<!--              <input type="file" @change="uploadImageHandler" name="image" id="image" autocomplete="address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />-->
-            </div>
+            <image-uploader :image-url="imageUrl" v-on:previewReady="uploadImageHandler"></image-uploader>
           </div>
         </div>
       </div>
@@ -83,8 +66,10 @@ import {EventApi} from "../api/event-api";
 import {ImageApi} from "../api/image-api";
 import {EventDescriptionApi} from "../api/event-description-api";
 import {LoadingStatus} from "../scripts/constants.ts";
+import ImageUploader from "../components/image-uploader.vue";
 
 export default defineComponent({
+  components: {ImageUploader},
   data() {
     return {
       title: "",
@@ -166,19 +151,17 @@ export default defineComponent({
           if (this.isImageIdValid && this.eventId) {
             this.saveEventImage(this.eventId, this.imageId);
           }
-          // window.location = '/'
+
+          this.goToMyEvents()
         }
       });
     },
-
+    goToMyEvents() {
+      this.$router.push('/my-events/');
+    },
     uploadImageHandler(event) {
-      const output = document.getElementById('preview_img');
-      output.src = URL.createObjectURL(event.target.files[0]);
-      output.onload = function() {
-        URL.revokeObjectURL(output.src)
-      }
       new ImageApi().uploadImage(event.target.files[0])
-          .then(r => this.imageId = r.data)
+          .then(r => this.imageId = r.data.id)
           .catch(e => console.log(e))
     },
 

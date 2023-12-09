@@ -28,15 +28,19 @@
 	
 	Route::get('/my-events', function () {
 		return view('welcome');
-	});
+	})->middleware(Authenticate::class);
 	
 	Route::get('/event/{id}', function () {
 		return view('welcome');
 	});
 	
+	Route::get('/profile', function () {
+		return view('welcome');
+	})->middleware(Authenticate::class);
+	
 	Route::get('/edit-event/{id}', function () {
 		return view('welcome');
-	});
+	})->middleware(Authenticate::class);
 	
 	Route::get('/create-event', function () {
 		return view('welcome');

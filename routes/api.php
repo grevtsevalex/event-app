@@ -4,6 +4,7 @@
 	use App\Http\Controllers\Api\DescriptionController;
 	use App\Http\Controllers\Api\EventController;
 	use App\Http\Controllers\Api\ImageController;
+	use App\Http\Controllers\Api\UserController;
 	use Illuminate\Http\Request;
 	use Illuminate\Support\Facades\Route;
 	
@@ -17,22 +18,30 @@
 	| is assigned the "api" middleware group. Enjoy building your API!
 	|
 	*/
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::controller(AuthController::class)->group(function() {
-	Route::post('login', 'login');
-	Route::post('register', 'register');
-	Route::post('check', 'check');
-	Route::get('logout', 'logout');
-});
-
-Route::apiResource('events', EventController::class);
-Route::apiResource('event-images', ImageController::class);
-Route::apiResource('event-descriptions', DescriptionController::class);
-
-Route::controller(EventController::class)->group(function () {
-	Route::get('/events/get-by-author-id/{authorId}', 'getByAuthorId');
-});
+	
+	Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+		return $request->user();
+	});
+	
+	Route::controller(AuthController::class)->group(function() {
+		Route::post('login', 'login');
+		Route::post('register', 'register');
+		Route::post('check', 'check');
+		Route::get('logout', 'logout');
+	});
+	
+	Route::apiResource('events', EventController::class);
+	Route::apiResource('event-images', ImageController::class);
+	Route::apiResource('event-descriptions', DescriptionController::class);
+	
+	Route::controller(EventController::class)->group(function () {
+		Route::get('/events/get-by-author-id/{authorId}', 'getByAuthorId');
+	});
+	
+	Route::controller(UserController::class)->group(function () {
+		Route::patch('/user', 'update');
+	})->middleware('auth:sanctum');
+	
+//	Route::middleware('auth:api')->group(function () {
+//		Route::patch('/user', 'UserController@update');
+//	});

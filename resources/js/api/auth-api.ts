@@ -12,4 +12,12 @@ export class AuthApi {
     public logout(): Promise<any> {
         return FetchHelper.sendGet('http://localhost/api/logout');
     }
+
+    public getUser() {
+        const token = localStorage.getItem('ifh_duf1k');
+        if (null === token) {
+            return Promise.reject()
+        }
+        return FetchHelper.sendGet('http://localhost/api/user', {'Authorization': `Bearer ${localStorage.getItem('ifh_duf1k')}`})
+    }
 }

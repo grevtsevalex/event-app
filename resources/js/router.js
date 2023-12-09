@@ -4,38 +4,38 @@ export default createRouter({
     routes: [
         {
             path: '/',
-            component: () => import('./pages/Main.vue')
+            component: () => import('./pages/main.vue')
         },
         {
             path: '/profile',
-            component: () => import('./pages/Profile.vue'),
+            component: () => import('./pages/profile.vue'),
             meta: { requiresAuth: true }
         },
         {
             path: '/auth',
-            component: () => import('./pages/Auth.vue')
+            component: () => import('./pages/auth.vue')
         },
         {
             path: '/register',
-            component: () => import('./pages/Register.vue'),
+            component: () => import('./pages/register.vue'),
         },
         {
             path: '/create-event',
-            component: () => import('./pages/CreateEvent.vue'),
+            component: () => import('./pages/create-event.vue'),
             meta: { requiresAuth: true }
         },
         {
             path: '/event/:id',
-            component: () => import('./pages/EventCard.vue'),
+            component: () => import('./pages/card-event.vue'),
         },
         {
             path: '/edit-event/:id',
-            component: () => import('./pages/EditEvent.vue'),
+            component: () => import('./pages/edit-event.vue'),
             meta: { requiresAuth: true }
         },
         {
             path: '/my-events',
-            component: () => import('./pages/MyEvents.vue'),
+            component: () => import('./pages/me-events.vue'),
             meta: { requiresAuth: true }
         },
         {

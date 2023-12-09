@@ -5,7 +5,7 @@
 <script>
 import {defineComponent} from "vue";
 import {EventApi} from "../api/event-api";
-import EventList from "../components/EventList.vue";
+import EventList from "../components/event-list.vue";
 
 export default defineComponent({
   components: {EventList},

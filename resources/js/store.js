@@ -5,6 +5,7 @@ export default createStore({
         return {
             isAuthenticated: false,
             userId: null,
+            token: null,
         }
     },
     mutations: {
@@ -13,6 +14,9 @@ export default createStore({
         },
         setUserId(state, userId) {
             state.userId = userId
+        },
+        setToken(state, token) {
+            return state.token = token
         }
     },
     getters: {
@@ -21,6 +25,9 @@ export default createStore({
         },
         getUserId(state) {
             return state.userId
+        },
+        getToken(state) {
+            return state.token
         }
     },
 })
