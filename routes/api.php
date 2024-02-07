@@ -41,7 +41,3 @@
 	Route::controller(UserController::class)->group(function () {
 		Route::patch('/user', 'update');
 	})->middleware('auth:sanctum');
-	
-//	Route::middleware('auth:api')->group(function () {
-//		Route::patch('/user', 'UserController@update');
-//	});
