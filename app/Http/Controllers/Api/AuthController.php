@@ -57,7 +57,6 @@ class AuthController extends Controller
     public function login(Request $request): ApiResponse {
 		$response = new ApiResponse();
         if (false === Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-
             return $response->setContent(false, false, 'Unauthorized')->setStatusCode(400);
         }
 

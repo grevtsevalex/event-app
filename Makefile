@@ -5,7 +5,7 @@ up:
 	docker compose up -d
 
 stop:
-	docker compose stop
+	docker compose down
 
 start:
 	docker compose start
@@ -31,6 +31,9 @@ removeImagesAndContainers:
 
 servers-setup:
 	ansible-playbook ansible/playbooks/setup.yml -i ansible/inventory.ini --vault-password-file ansible/vault.pass
+
+servers-db-setup:
+	ansible-playbook ansible/playbooks/db-setup.yml -i ansible/inventory.ini --vault-password-file ansible/vault.pass
 
 deploy:
 	ansible-playbook ansible/playbooks/release.yml -i ansible/inventory.ini --vault-password-file ansible/vault.pass

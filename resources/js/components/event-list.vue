@@ -5,8 +5,7 @@
 </template>
 <style>
 .events-list {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 0 4rem 0 4rem;
 }
 </style>
 
