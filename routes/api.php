@@ -23,10 +23,11 @@
 		return $request->user();
 	});
 	
+	Route::middleware('auth:sanctum')->post('/check', [AuthController::class, 'check']);
+	
 	Route::controller(AuthController::class)->group(function() {
 		Route::post('login', 'login');
 		Route::post('register', 'register');
-		Route::post('check', 'check');
 		Route::get('logout', 'logout');
 	});
 	

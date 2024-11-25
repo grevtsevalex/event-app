@@ -1,1 +1,0 @@
-import{F as t}from"./FetchHelper-952a71bc.js";class r{saveDescription(e){return t.sendPost("/api/event-descriptions",JSON.stringify({description:e})).catch(s=>console.log(s))}getDescription(e){return t.sendGet(`/api/event-descriptions/${e}`)}}export{r as E};

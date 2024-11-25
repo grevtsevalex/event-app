@@ -75,7 +75,8 @@ class AuthController extends Controller
 	 * @return ApiResponse
 	 */
 	public function check(Request $request): ApiResponse {
-		return (new ApiResponse())->setContent(Auth::check());
+		$user = auth()->user(); // Проверяем пользователя
+		return (new ApiResponse())->setContent($user ? true : false, true, $user ? 'User authenticated' : 'Unauthenticated')->setStatusCode($user ? 200 : 401);
 	}
 	
 	/**

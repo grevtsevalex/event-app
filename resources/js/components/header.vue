@@ -85,7 +85,6 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
 import {
   Dialog,
   DialogPanel,
@@ -100,20 +99,51 @@ import {
 import {Bars3Icon, CursorArrowRaysIcon, XMarkIcon, CalendarIcon, CalendarDaysIcon} from '@heroicons/vue/24/outline'
 import {ChevronDownIcon} from '@heroicons/vue/20/solid'
 import {useStore} from "vuex";
+import { ref, onMounted } from 'vue';
 
-const isGuest = !Boolean(document.querySelector('[data-role="is-auth"]').value);
-useStore().commit('setIsAuthenticated', !isGuest);
-
-const buttonTitle = isGuest ? 'Войти' : 'Профиль'
-const buttonUrl = isGuest ? '/auth' : '/profile'
-const products = [
-  { name: 'Создать событие', description: 'Планируйте и проводите мероприятия вместе с нами', href: '/create-event', icon: CursorArrowRaysIcon },
-  { name: 'Все события', description: 'Список ближайших мероприятий', href: '/', icon: CalendarIcon }
-]
-
-if (false === isGuest) {
-  products.push({ name: 'Мои события', description: 'Список моих мероприятий', href: '/my-events', icon: CalendarDaysIcon })
-}
-
+const isGuest = ref(true); // Изначальное значение, пока не определён статус авторизации
+const buttonTitle = ref('Войти');
+const buttonUrl = ref('/auth');
 const mobileMenuOpen = ref(false)
+const products = ref([
+  { name: 'Создать событие', description: 'Планируйте и проводите мероприятия вместе с нами', href: '/create-event', icon: CursorArrowRaysIcon },
+  { name: 'Все события', description: 'Список ближайших мероприятий', href: '/', icon: CalendarIcon },
+]);
+
+onMounted(async () => {
+  const store = useStore();
+  if (!store) {
+    console.error('Vuex store не найден');
+    return;
+  }
+
+  try {
+    // Выполняем проверку авторизации
+    const isAuthenticated = store.getters.getIsAuthenticated;
+    console.log('Статус авторизации:', isAuthenticated);
+
+    isGuest.value = !isAuthenticated; // Устанавливаем значение isGuest
+    store.commit('setIsAuthenticated', isAuthenticated);
+
+    // Обновляем заголовок и URL кнопки
+    buttonTitle.value = isGuest.value ? 'Войти' : 'Профиль';
+    buttonUrl.value = isGuest.value ? '/auth' : '/profile';
+
+    console.log('isGuest:', isGuest.value);
+    console.log('buttonTitle:', buttonTitle.value);
+
+    // Если пользователь авторизован, добавляем "Мои события" в список
+    if (isAuthenticated) {
+      products.value.push({
+        name: 'Мои события',
+        description: 'Список моих мероприятий',
+        href: '/my-events',
+        icon: CalendarDaysIcon,
+      });
+    }
+  } catch (error) {
+    console.error('Ошибка проверки авторизации:', error);
+  }
+});
+
 </script>

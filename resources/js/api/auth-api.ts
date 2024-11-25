@@ -13,6 +13,14 @@ export class AuthApi {
         return FetchHelper.sendGet('/api/logout');
     }
 
+    public checkAuth(): Promise<any> {
+        return FetchHelper.sendPost('/api/check', {'Authorization': `Bearer ${localStorage.getItem('ifh_duf1k')}`})
+            .then(response => response.data)
+            .catch(error => {
+                console.error('Error checking authentication', error);
+            });
+    }
+
     public getUser() {
         const token = localStorage.getItem('ifh_duf1k');
         if (null === token) {
