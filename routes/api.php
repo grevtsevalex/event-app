@@ -23,7 +23,7 @@
 		return $request->user();
 	});
 	
-	Route::middleware('auth:sanctum')->post('/check', [AuthController::class, 'check']);
+	Route::middleware('auth:sanctum')->get('/check', [AuthController::class, 'check']);
 	
 	Route::controller(AuthController::class)->group(function() {
 		Route::post('login', 'login');

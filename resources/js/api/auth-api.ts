@@ -14,7 +14,7 @@ export class AuthApi {
     }
 
     public checkAuth(): Promise<any> {
-        return FetchHelper.sendPost('/api/check', {'Authorization': `Bearer ${localStorage.getItem('ifh_duf1k')}`})
+        return FetchHelper.sendGet('/api/check', {'Authorization': `Bearer ${localStorage.getItem('ifh_duf1k')}`})
             .then(response => response.data)
             .catch(error => {
                 console.error('Error checking authentication', error);
