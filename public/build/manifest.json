@@ -2,33 +2,33 @@
   "_Validators-a31ce396.js": {
     "file": "assets/Validators-a31ce396.js"
   },
-  "_event-description-api-27678279.js": {
-    "file": "assets/event-description-api-27678279.js",
+  "_event-description-api-3ef06101.js": {
+    "file": "assets/event-description-api-3ef06101.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_event-list-04738da2.js": {
+  "_event-list-8027fe4c.js": {
     "assets": [
       "assets/def-event-efa26e84.jpg"
     ],
     "css": [
       "assets/event-list-69e400e1.css"
     ],
-    "file": "assets/event-list-04738da2.js",
+    "file": "assets/event-list-8027fe4c.js",
     "imports": [
-      "_image-api-d7a181dd.js",
+      "_image-api-ed5f7e5e.js",
       "resources/js/app.js"
     ]
   },
-  "_image-api-d7a181dd.js": {
-    "file": "assets/image-api-d7a181dd.js",
+  "_image-api-ed5f7e5e.js": {
+    "file": "assets/image-api-ed5f7e5e.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_image-uploader-ecb541c4.js": {
-    "file": "assets/image-uploader-ecb541c4.js",
+  "_image-uploader-0b4d813f.js": {
+    "file": "assets/image-uploader-0b4d813f.js",
     "imports": [
       "resources/js/app.js"
     ]
@@ -38,7 +38,7 @@
     "src": "event-list.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app-945fc863.css",
+    "file": "assets/app-08b8806e.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -55,7 +55,7 @@
       "assets/logo-12a420d8.jpg"
     ],
     "css": [
-      "assets/app-945fc863.css"
+      "assets/app-08b8806e.css"
     ],
     "dynamicImports": [
       "resources/js/pages/main.vue",
@@ -69,7 +69,7 @@
       "resources/js/pages/404.vue",
       "resources/js/bootstrap.js"
     ],
-    "file": "assets/app-d856ee97.js",
+    "file": "assets/app-19969aa0.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -80,9 +80,9 @@
   },
   "resources/js/pages/404.vue": {
     "css": [
-      "assets/app-945fc863.css"
+      "assets/app-08b8806e.css"
     ],
-    "file": "assets/404-1c0087d7.js",
+    "file": "assets/404-c23a331f.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -91,9 +91,9 @@
   },
   "resources/js/pages/auth.vue": {
     "css": [
-      "assets/app-945fc863.css"
+      "assets/app-08b8806e.css"
     ],
-    "file": "assets/auth-d97864a5.js",
+    "file": "assets/auth-42ba2022.js",
     "imports": [
       "resources/js/app.js",
       "_Validators-a31ce396.js"
@@ -108,12 +108,12 @@
   "resources/js/pages/card-event.vue": {
     "css": [
       "assets/card-event-9b15eb3f.css",
-      "assets/app-945fc863.css"
+      "assets/app-08b8806e.css"
     ],
-    "file": "assets/card-event-0d32a7d9.js",
+    "file": "assets/card-event-750d9a65.js",
     "imports": [
-      "_image-api-d7a181dd.js",
-      "_event-description-api-27678279.js",
+      "_image-api-ed5f7e5e.js",
+      "_event-description-api-3ef06101.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
@@ -121,14 +121,14 @@
   },
   "resources/js/pages/create-event.vue": {
     "css": [
-      "assets/app-945fc863.css"
+      "assets/app-08b8806e.css"
     ],
-    "file": "assets/create-event-2bcf2d1e.js",
+    "file": "assets/create-event-0f0c0820.js",
     "imports": [
       "resources/js/app.js",
-      "_image-api-d7a181dd.js",
-      "_event-description-api-27678279.js",
-      "_image-uploader-ecb541c4.js"
+      "_image-api-ed5f7e5e.js",
+      "_event-description-api-3ef06101.js",
+      "_image-uploader-0b4d813f.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/create-event.vue"
@@ -140,26 +140,26 @@
   "resources/js/pages/edit-event.vue": {
     "css": [
       "assets/edit-event-14f43881.css",
-      "assets/app-945fc863.css"
+      "assets/app-08b8806e.css"
     ],
-    "file": "assets/edit-event-6bd880d7.js",
+    "file": "assets/edit-event-ecf74460.js",
     "imports": [
       "resources/js/app.js",
-      "_image-api-d7a181dd.js",
-      "_event-description-api-27678279.js",
-      "_image-uploader-ecb541c4.js"
+      "_image-api-ed5f7e5e.js",
+      "_event-description-api-3ef06101.js",
+      "_image-uploader-0b4d813f.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/edit-event.vue"
   },
   "resources/js/pages/main.vue": {
     "css": [
-      "assets/app-945fc863.css"
+      "assets/app-08b8806e.css"
     ],
-    "file": "assets/main-fd3a2da2.js",
+    "file": "assets/main-f1929a99.js",
     "imports": [
-      "_image-api-d7a181dd.js",
-      "_event-list-04738da2.js",
+      "_image-api-ed5f7e5e.js",
+      "_event-list-8027fe4c.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
@@ -167,27 +167,27 @@
   },
   "resources/js/pages/me-events.vue": {
     "css": [
-      "assets/app-945fc863.css"
+      "assets/app-08b8806e.css"
     ],
-    "file": "assets/me-events-87838321.js",
+    "file": "assets/me-events-bf70aa85.js",
     "imports": [
-      "_image-api-d7a181dd.js",
-      "_event-list-04738da2.js",
+      "_image-api-ed5f7e5e.js",
+      "_event-list-8027fe4c.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/me-events.vue"
   },
   "resources/js/pages/profile.css": {
-    "file": "assets/profile-56246e5e.css",
+    "file": "assets/profile-7c951a86.css",
     "src": "resources/js/pages/profile.css"
   },
   "resources/js/pages/profile.vue": {
     "css": [
-      "assets/profile-56246e5e.css",
-      "assets/app-945fc863.css"
+      "assets/profile-7c951a86.css",
+      "assets/app-08b8806e.css"
     ],
-    "file": "assets/profile-5102fd0f.js",
+    "file": "assets/profile-3c907143.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -196,9 +196,9 @@
   },
   "resources/js/pages/register.vue": {
     "css": [
-      "assets/app-945fc863.css"
+      "assets/app-08b8806e.css"
     ],
-    "file": "assets/register-13534e55.js",
+    "file": "assets/register-249b9bb8.js",
     "imports": [
       "resources/js/app.js",
       "_Validators-a31ce396.js"

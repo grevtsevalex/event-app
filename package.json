@@ -22,6 +22,7 @@
         "vue-loader": "^17.2.2",
         "vue-router": "^4.2.4",
         "vue-tailwind-datepicker": "^1.5.2",
+        "vue-the-mask": "^0.11.1",
         "vuex": "^4.1.0"
     }
 }
