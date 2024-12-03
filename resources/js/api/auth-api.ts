@@ -10,7 +10,11 @@ export class AuthApi {
         }))
     }
     public logout(): Promise<any> {
-        return FetchHelper.sendGet('/api/logout');
+        return FetchHelper.sendGet('/api/logout', {'Authorization': `Bearer ${localStorage.getItem('ifh_duf1k')}`})
+            .then(response => response.data)
+            .catch(error => {
+                console.error('Logout error', error);
+            });
     }
 
     public checkAuth(): Promise<any> {

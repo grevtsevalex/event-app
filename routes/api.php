@@ -24,12 +24,13 @@
 	});
 	
 	Route::middleware('auth:sanctum')->get('/check', [AuthController::class, 'check']);
-	Route::middleware('auth:sanctum')->get('/logout', [AuthController::class, 'logout']);
 	
 	Route::controller(AuthController::class)->group(function() {
 		Route::post('login', 'login');
 		Route::post('register', 'register');
 	});
+	
+	Route::middleware('auth:sanctum')->get('/logout', [AuthController::class, 'logout']);
 	
 	Route::apiResource('events', EventController::class);
 	Route::apiResource('event-images', ImageController::class);
