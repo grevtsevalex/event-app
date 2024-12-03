@@ -88,11 +88,8 @@ class AuthController extends Controller
 	 */
 	public function logout(Request $request): ApiResponse
 	{
-		Auth::logout();
-		
-		$request->session()->invalidate();
-		
-		$request->session()->regenerateToken();
+		// Удаляем текущий токен пользователя
+		$request->user()->currentAccessToken()->delete();
 		
 		return (new ApiResponse())->setContent(true);
 	}
