@@ -2,33 +2,33 @@
   "_Validators-a31ce396.js": {
     "file": "assets/Validators-a31ce396.js"
   },
-  "_event-description-api-7de4d941.js": {
-    "file": "assets/event-description-api-7de4d941.js",
+  "_event-description-api-97f6c3ba.js": {
+    "file": "assets/event-description-api-97f6c3ba.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_event-list-f605242c.js": {
+  "_event-list-561a9577.js": {
     "assets": [
       "assets/def-event-efa26e84.jpg"
     ],
     "css": [
       "assets/event-list-69e400e1.css"
     ],
-    "file": "assets/event-list-f605242c.js",
+    "file": "assets/event-list-561a9577.js",
     "imports": [
-      "_image-api-5873e782.js",
+      "_image-api-78e4d124.js",
       "resources/js/app.js"
     ]
   },
-  "_image-api-5873e782.js": {
-    "file": "assets/image-api-5873e782.js",
+  "_image-api-78e4d124.js": {
+    "file": "assets/image-api-78e4d124.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_image-uploader-fa655bb3.js": {
-    "file": "assets/image-uploader-fa655bb3.js",
+  "_image-uploader-30647e4f.js": {
+    "file": "assets/image-uploader-30647e4f.js",
     "imports": [
       "resources/js/app.js"
     ]
@@ -38,7 +38,7 @@
     "src": "event-list.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app-08b8806e.css",
+    "file": "assets/app-e7c1512c.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -55,7 +55,7 @@
       "assets/logo-12a420d8.jpg"
     ],
     "css": [
-      "assets/app-08b8806e.css"
+      "assets/app-e7c1512c.css"
     ],
     "dynamicImports": [
       "resources/js/pages/main.vue",
@@ -69,7 +69,7 @@
       "resources/js/pages/404.vue",
       "resources/js/bootstrap.js"
     ],
-    "file": "assets/app-ef630d10.js",
+    "file": "assets/app-357c4cd6.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -80,20 +80,25 @@
   },
   "resources/js/pages/404.vue": {
     "css": [
-      "assets/app-08b8806e.css"
+      "assets/app-e7c1512c.css"
     ],
-    "file": "assets/404-5749dc7a.js",
+    "file": "assets/404-fcc320a3.js",
     "imports": [
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/404.vue"
   },
+  "resources/js/pages/auth.css": {
+    "file": "assets/auth-05cc87ba.css",
+    "src": "resources/js/pages/auth.css"
+  },
   "resources/js/pages/auth.vue": {
     "css": [
-      "assets/app-08b8806e.css"
+      "assets/auth-05cc87ba.css",
+      "assets/app-e7c1512c.css"
     ],
-    "file": "assets/auth-d785a5f5.js",
+    "file": "assets/auth-0e5d325c.js",
     "imports": [
       "resources/js/app.js",
       "_Validators-a31ce396.js"
@@ -108,12 +113,12 @@
   "resources/js/pages/card-event.vue": {
     "css": [
       "assets/card-event-9b15eb3f.css",
-      "assets/app-08b8806e.css"
+      "assets/app-e7c1512c.css"
     ],
-    "file": "assets/card-event-a8c32623.js",
+    "file": "assets/card-event-10788523.js",
     "imports": [
-      "_image-api-5873e782.js",
-      "_event-description-api-7de4d941.js",
+      "_image-api-78e4d124.js",
+      "_event-description-api-97f6c3ba.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
@@ -121,14 +126,14 @@
   },
   "resources/js/pages/create-event.vue": {
     "css": [
-      "assets/app-08b8806e.css"
+      "assets/app-e7c1512c.css"
     ],
-    "file": "assets/create-event-979521af.js",
+    "file": "assets/create-event-7471e4ba.js",
     "imports": [
       "resources/js/app.js",
-      "_image-api-5873e782.js",
-      "_event-description-api-7de4d941.js",
-      "_image-uploader-fa655bb3.js"
+      "_image-api-78e4d124.js",
+      "_event-description-api-97f6c3ba.js",
+      "_image-uploader-30647e4f.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/create-event.vue"
@@ -140,26 +145,26 @@
   "resources/js/pages/edit-event.vue": {
     "css": [
       "assets/edit-event-14f43881.css",
-      "assets/app-08b8806e.css"
+      "assets/app-e7c1512c.css"
     ],
-    "file": "assets/edit-event-fa730ca1.js",
+    "file": "assets/edit-event-e2632302.js",
     "imports": [
       "resources/js/app.js",
-      "_image-api-5873e782.js",
-      "_event-description-api-7de4d941.js",
-      "_image-uploader-fa655bb3.js"
+      "_image-api-78e4d124.js",
+      "_event-description-api-97f6c3ba.js",
+      "_image-uploader-30647e4f.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/edit-event.vue"
   },
   "resources/js/pages/main.vue": {
     "css": [
-      "assets/app-08b8806e.css"
+      "assets/app-e7c1512c.css"
     ],
-    "file": "assets/main-c0c65e58.js",
+    "file": "assets/main-dd333eaa.js",
     "imports": [
-      "_image-api-5873e782.js",
-      "_event-list-f605242c.js",
+      "_image-api-78e4d124.js",
+      "_event-list-561a9577.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
@@ -167,27 +172,27 @@
   },
   "resources/js/pages/me-events.vue": {
     "css": [
-      "assets/app-08b8806e.css"
+      "assets/app-e7c1512c.css"
     ],
-    "file": "assets/me-events-4bb73489.js",
+    "file": "assets/me-events-c07de131.js",
     "imports": [
-      "_image-api-5873e782.js",
-      "_event-list-f605242c.js",
+      "_image-api-78e4d124.js",
+      "_event-list-561a9577.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/pages/me-events.vue"
   },
   "resources/js/pages/profile.css": {
-    "file": "assets/profile-7c951a86.css",
+    "file": "assets/profile-d8951966.css",
     "src": "resources/js/pages/profile.css"
   },
   "resources/js/pages/profile.vue": {
     "css": [
-      "assets/profile-7c951a86.css",
-      "assets/app-08b8806e.css"
+      "assets/profile-d8951966.css",
+      "assets/app-e7c1512c.css"
     ],
-    "file": "assets/profile-435f37e1.js",
+    "file": "assets/profile-6305c52b.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -196,9 +201,9 @@
   },
   "resources/js/pages/register.vue": {
     "css": [
-      "assets/app-08b8806e.css"
+      "assets/app-e7c1512c.css"
     ],
-    "file": "assets/register-4f81b668.js",
+    "file": "assets/register-92770fb2.js",
     "imports": [
       "resources/js/app.js",
       "_Validators-a31ce396.js"
